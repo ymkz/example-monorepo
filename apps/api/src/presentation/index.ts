@@ -2,9 +2,10 @@ import { OpenAPIHono } from '@hono/zod-openapi'
 import { errorHandler } from '~/presentation/_error'
 import { notfoundHandler } from '~/presentation/_notfound'
 import { validationHook } from '~/presentation/_validation'
-import { getUserHandler, getUserRoute } from '~/presentation/get-user'
-import { ListUsersHandler, listUsersRoute } from '~/presentation/list-users'
-import { healthcheckHandler } from './healthcheck'
+import { getUserByUserIdHandler } from '~/presentation/handler/getUserByUserId'
+import { healthcheckHandler } from '~/presentation/handler/healthcheck'
+import { listUsersHandler } from '~/presentation/handler/listUsers'
+import { getUserByUserIdRoute, listUsersRoute } from '~/presentation/route'
 
 const app = new OpenAPIHono({ defaultHook: validationHook })
 
@@ -13,7 +14,7 @@ app.onError(errorHandler)
 
 app.route('', healthcheckHandler)
 
-app.openapi(listUsersRoute, ListUsersHandler)
-app.openapi(getUserRoute, getUserHandler)
+app.openapi(listUsersRoute, listUsersHandler)
+app.openapi(getUserByUserIdRoute, getUserByUserIdHandler)
 
 export { app }

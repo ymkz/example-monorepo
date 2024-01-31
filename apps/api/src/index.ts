@@ -2,13 +2,6 @@ import { serve } from '@hono/node-server'
 import { showRoutes } from 'hono/dev'
 import { logger } from '~/logger'
 import { app } from '~/presentation'
-import { registerSpec, registerSpecOpenapiJson, writeOpenapiJson } from './openapi'
-
-if (process.env.APP_ENV === 'local') {
-  registerSpecOpenapiJson()
-  registerSpec()
-  writeOpenapiJson()
-}
 
 serve(
   {
