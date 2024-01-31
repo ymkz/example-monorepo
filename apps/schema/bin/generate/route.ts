@@ -1,5 +1,4 @@
 import { writeFileSync } from 'node:fs'
-import { resolve } from 'node:path'
 import { CodeGenerator } from '@himenon/openapi-typescript-code-generator'
 import { OpenApiResponses } from '@himenon/openapi-typescript-code-generator/$types/typedef/CodeGenerator'
 import { Parameter } from '@himenon/openapi-typescript-code-generator/$types/typedef/OpenApi'
@@ -69,9 +68,9 @@ const makeResponses = (responses: OpenApiResponses) => {
 }
 
 const run = () => {
-  const input = resolve('spec/openapi.yaml')
-  const output = resolve('../../apps/api/src/presentation/route/index.ts')
-  const routeSuffix = 'Route'
+  const input = 'spec/openapi.yaml'
+  const output = '../../apps/api/src/presentation/route/index.ts'
+  const functionSuffix = 'Route'
 
   const codeGenerator = new CodeGenerator(input)
 
@@ -81,7 +80,7 @@ const run = () => {
         return [
           `import { createRoute, z } from '@hono/zod-openapi'`,
           ...payload.map((operation) => {
-            return `export const ${operation.operationId}${routeSuffix} = createRoute({
+            return `export const ${operation.operationId}${functionSuffix} = createRoute({
               operationId: '${operation.operationId}',
               method: '${operation.operationParams.httpMethod}',
               path: '${operation.operationParams.requestUri}',

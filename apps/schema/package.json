@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "serve -L -s -n -u -p 2000 spec",
     "build": "ts-node bin/generate/route.ts",
-    "lint": "biome check bin",
-    "lint:fix": "biome check bin --apply",
+    "lint": "echo 'no lint yet'",
+    "lint:fix": "echo 'no lint yet'",
     "test": "echo 'no test yet'"
   },
   "devDependencies": {

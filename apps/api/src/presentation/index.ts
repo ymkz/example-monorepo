@@ -1,4 +1,5 @@
 import { OpenAPIHono } from '@hono/zod-openapi'
+import { cors } from 'hono/cors'
 import { errorHandler } from '~/presentation/_error'
 import { notfoundHandler } from '~/presentation/_notfound'
 import { validationHook } from '~/presentation/_validation'
@@ -9,10 +10,13 @@ import { getUserByUserIdRoute, listUsersRoute } from '~/presentation/route'
 
 const app = new OpenAPIHono({ defaultHook: validationHook })
 
+app.route('', healthcheckHandler)
+
 app.notFound(notfoundHandler)
 app.onError(errorHandler)
 
-app.route('', healthcheckHandler)
+// API仕様書からの動作検証リクエストは許可する
+app.use('*', cors({ origin: ['http://localhost:2000'] }))
 
 app.openapi(listUsersRoute, listUsersHandler)
 app.openapi(getUserByUserIdRoute, getUserByUserIdHandler)
