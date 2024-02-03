@@ -1,5 +1,10 @@
+.cache
 .next
+.turbo
+.env
 .env*.local
+build
+public/build
 dist
 node_modules
 next-env.d.ts
