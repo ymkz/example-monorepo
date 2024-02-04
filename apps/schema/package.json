@@ -1,14 +1,16 @@
 {
   "name": "schema",
   "version": "1.0.0",
+  "type": "module",
   "private": true,
+  "sideEffects": false,
   "scripts": {
     "dev": "serve -L -s -n -u -p 2000 spec",
-    "build": "ts-node bin/generate/route.ts"
+    "build": "node --import=tsimp/import bin/generate/route.ts"
   },
   "devDependencies": {
-    "@himenon/openapi-typescript-code-generator": "1.0.2",
+    "@himenon/openapi-typescript-code-generator": "1.0.3",
     "serve": "14.2.1",
-    "ts-node": "10.9.2"
+    "tsimp": "2.0.10"
   }
 }

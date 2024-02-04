@@ -1,7 +1,6 @@
 import { writeFileSync } from 'node:fs'
 import { CodeGenerator } from '@himenon/openapi-typescript-code-generator'
-import { OpenApiResponses } from '@himenon/openapi-typescript-code-generator/$types/typedef/CodeGenerator'
-import { Parameter } from '@himenon/openapi-typescript-code-generator/$types/typedef/OpenApi'
+import * as Types from '@himenon/openapi-typescript-code-generator/dist/types'
 import type { JSONSchema7 } from 'json-schema'
 
 const zodPrimitive = (type: JSONSchema7['type']) => {
@@ -27,7 +26,7 @@ const zodStringNumeric = (format?: string) => {
   return format === 'numeric' ? '.pipe(z.coerce.number())' : ''
 }
 
-const makeRequest = (params?: Parameter[]) => {
+const makeRequest = (params?: Types.CodeGenerator.OpenApiOperation['parameters']) => {
   if (!params?.length) {
     return ''
   }
@@ -48,7 +47,7 @@ const makeRequest = (params?: Parameter[]) => {
   return `query: z.object({${queryString.join(',')}}),params: z.object({${pathString.join(',')}}),`
 }
 
-const makeResponses = (responses: OpenApiResponses) => {
+const makeResponses = (responses: Types.CodeGenerator.OpenApiOperation['responses']) => {
   const response = Object.entries(responses).map(([statusCode, response]) => {
     const schema = response.content?.['application/json'].schema
     if (!schema?.properties) {

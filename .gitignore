@@ -1,5 +1,6 @@
 .cache
 .next
+.tsimp
 .turbo
 .env
 .env*.local
