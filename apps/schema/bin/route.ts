@@ -1,9 +1,6 @@
-import { writeFileSync } from 'node:fs'
-import { CodeGenerator } from '@himenon/openapi-typescript-code-generator'
 import * as Types from '@himenon/openapi-typescript-code-generator/dist/types'
-import type { JSONSchema7 } from 'json-schema'
 
-const zodPrimitive = (type: JSONSchema7['type']) => {
+const zodPrimitive = (type: Types.OpenApi.JSONSchema['type']) => {
   switch (type) {
     case 'string': {
       return '.string()'
@@ -49,7 +46,7 @@ const makeRequest = (params?: Types.CodeGenerator.OpenApiOperation['parameters']
 
 const makeResponses = (responses: Types.CodeGenerator.OpenApiOperation['responses']) => {
   const response = Object.entries(responses).map(([statusCode, response]) => {
-    const schema = response.content?.['application/json'].schema
+    const schema = response.content?.['application/json']?.schema
     if (!schema?.properties) {
       return ''
     }
@@ -66,34 +63,20 @@ const makeResponses = (responses: Types.CodeGenerator.OpenApiOperation['response
   return response.join(',')
 }
 
-const run = () => {
-  const input = 'spec/openapi.yaml'
-  const output = '../../apps/api/src/presentation/route/index.ts'
-  const functionSuffix = 'Route'
-
-  const codeGenerator = new CodeGenerator(input)
-
-  const code = codeGenerator.generateCode([
-    {
-      generator: (payload) => {
-        return [
-          `import { createRoute, z } from '@hono/zod-openapi'`,
-          ...payload.map((operation) => {
-            return `export const ${operation.operationId}${functionSuffix} = createRoute({
-              operationId: '${operation.operationId}',
-              method: '${operation.operationParams.httpMethod}',
-              path: '${operation.operationParams.requestUri}',
-              description: '${operation.operationParams.comment}',
-              request: { ${makeRequest(operation.operationParams.parameters)} },
-              responses: { ${makeResponses(operation.operationParams.responses)} },
-            })`
-          }),
-        ]
-      },
-    },
-  ])
-
-  writeFileSync(output, code, { encoding: 'utf-8' })
+export const template: Types.CodeGenerator.CustomGenerator<unknown> = {
+  generator: (payload) => {
+    return [
+      `import { createRoute, z } from '@hono/zod-openapi'`,
+      ...payload.map((operation) => {
+        return `export const ${operation.operationId}Route = createRoute({
+          operationId: '${operation.operationId}',
+          method: '${operation.operationParams.httpMethod}',
+          path: '${operation.operationParams.requestUri}',
+          description: '${operation.operationParams.comment}',
+          request: { ${makeRequest(operation.operationParams.parameters)} },
+          responses: { ${makeResponses(operation.operationParams.responses)} },
+        })`
+      }),
+    ]
+  },
 }
-
-run()

@@ -6,7 +6,7 @@
   "sideEffects": false,
   "scripts": {
     "dev": "serve -L -s -n -u -p 2000 spec",
-    "build": "node --import=tsimp/import bin/generate/route.ts"
+    "build": "node --import=tsimp/import bin/generate.ts"
   },
   "devDependencies": {
     "@himenon/openapi-typescript-code-generator": "1.0.3",
