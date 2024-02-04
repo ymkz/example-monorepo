@@ -8,6 +8,7 @@ permissions:
 env:
   CI: true
   TZ: Asia/Tokyo
+  DO_NOT_TRACK: 1
 
 jobs:
   check:
