@@ -9,7 +9,7 @@
     "build": "node --import=tsimp/import bin/generate.ts"
   },
   "devDependencies": {
-    "@himenon/openapi-typescript-code-generator": "1.0.3",
+    "@himenon/openapi-typescript-code-generator": "1.0.4",
     "serve": "14.2.1",
     "tsimp": "2.0.10"
   }
