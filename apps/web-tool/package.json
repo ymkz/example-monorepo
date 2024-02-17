@@ -10,10 +10,10 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@mantine/core": "7.5.2",
-    "@mantine/dates": "7.5.2",
-    "@mantine/form": "7.5.2",
-    "@mantine/hooks": "7.5.2",
+    "@mantine/core": "7.5.3",
+    "@mantine/dates": "7.5.3",
+    "@mantine/form": "7.5.3",
+    "@mantine/hooks": "7.5.3",
     "dayjs": "1.11.10",
     "express": "4.18.2",
     "express-prom-bundle": "7.0.0",
