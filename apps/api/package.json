@@ -10,7 +10,7 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@hono/node-server": "1.8.0",
+    "@hono/node-server": "1.8.1",
     "@hono/prometheus": "1.0.0",
     "@hono/zod-openapi": "0.9.6",
     "@hono/zod-validator": "0.1.11",

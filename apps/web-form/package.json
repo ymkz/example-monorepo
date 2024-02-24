@@ -12,10 +12,10 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@remix-run/css-bundle": "2.6.0",
-    "@remix-run/express": "2.6.0",
-    "@remix-run/node": "2.6.0",
-    "@remix-run/react": "2.6.0",
+    "@remix-run/css-bundle": "2.7.2",
+    "@remix-run/express": "2.7.2",
+    "@remix-run/node": "2.7.2",
+    "@remix-run/react": "2.7.2",
     "express": "4.18.2",
     "express-prom-bundle": "7.0.0",
     "isbot": "4.4.0",
