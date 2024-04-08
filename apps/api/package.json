@@ -9,13 +9,11 @@
   },
   "dependencies": {
     "@hono/node-server": "1.9.1",
-    "@hono/prometheus": "1.0.0",
     "@hono/zod-openapi": "0.10.0",
     "@hono/zod-validator": "0.2.1",
     "date-fns": "3.6.0",
     "hono": "4.2.2",
     "pino": "8.20.0",
-    "prom-client": "15.1.1",
     "zod": "3.22.4"
   },
   "devDependencies": {

@@ -5,9 +5,6 @@
   "engines": {
     "node": ">=20"
   },
-  "workspaces": [
-    "apps/*"
-  ],
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",

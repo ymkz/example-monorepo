@@ -1,4 +1,4 @@
-name: check
+name: ci
 
 on: push
 
@@ -15,9 +15,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+          run_install: true
       - uses: actions/setup-node@v4
         with:
           node-version-file: .node-version
-      - run: npm ci
+          cache: pnpm
       - run: npm run lint
       - run: npm run build

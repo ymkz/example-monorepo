@@ -1,6 +1,5 @@
 import { OpenAPIHono } from '@hono/zod-openapi'
 import { cors } from 'hono/cors'
-import { metricsHandler, registerMetrics } from '~/middleware/metrics'
 import { errorHandler } from '~/presentation/_error'
 import { notfoundHandler } from '~/presentation/_notfound'
 import { validationHook } from '~/presentation/_validation'
@@ -17,9 +16,6 @@ app.notFound(notfoundHandler)
 app.onError(errorHandler)
 
 app.use('*', cors({ origin: ['http://localhost:2000'] }))
-app.use('*', registerMetrics)
-
-app.route('', metricsHandler)
 
 app.openapi(listUsersRoute, listUsersHandler)
 app.openapi(getUserByUserIdRoute, getUserByUserIdHandler)
