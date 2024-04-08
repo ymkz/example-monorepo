@@ -1,6 +1,7 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
+    "include": ["apps/*.ts"],
     "ignore": ["src/presentation/route/index.ts"]
   },
   "organizeImports": {

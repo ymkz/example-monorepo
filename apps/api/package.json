@@ -5,9 +5,7 @@
   "scripts": {
     "dev": "tsup --watch --onSuccess 'node --env-file .env.local dist/index.mjs'",
     "build": "tsup",
-    "start": "node dist/index.mjs",
-    "lint": "biome check src",
-    "typecheck": "tsc"
+    "start": "node dist/index.mjs"
   },
   "dependencies": {
     "@hono/node-server": "1.9.1",

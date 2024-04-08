@@ -11,7 +11,8 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "lint": "turbo run lint"
+    "lint": "biome check apps",
+    "lint:fix": "biome check apps --apply"
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.4",
