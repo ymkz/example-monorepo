@@ -1,5 +1,5 @@
 import { Button } from '@mantine/core'
-import { GetServerSideProps } from 'next'
+import type { GetServerSideProps } from 'next'
 import { Layout } from '../components/layout'
 import { NextHead } from '../components/next'
 import { incrementApiErrorCounter } from '../utils/metrics'
