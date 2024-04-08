@@ -1,4 +1,4 @@
-import { ErrorHandler } from 'hono'
+import type { ErrorHandler } from 'hono'
 import { logger } from '~/logger'
 
 export const errorHandler: ErrorHandler = (err, ctx) => {

@@ -11,12 +11,13 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "lint": "turbo run lint"
+    "lint": "biome check apps",
+    "lint:fix": "biome check apps --apply"
   },
   "devDependencies": {
-    "@biomejs/biome": "1.5.3",
-    "@types/node": "20.11.25",
-    "turbo": "1.12.5",
-    "typescript": "5.4.2"
+    "@biomejs/biome": "1.6.4",
+    "@types/node": "20.12.5",
+    "turbo": "1.13.2",
+    "typescript": "5.4.4"
   }
 }

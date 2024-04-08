@@ -1,4 +1,4 @@
-import { NotFoundHandler } from 'hono'
+import type { NotFoundHandler } from 'hono'
 import { logger } from '~/logger'
 
 export const notfoundHandler: NotFoundHandler = (ctx) => {

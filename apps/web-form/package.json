@@ -7,9 +7,7 @@
   "scripts": {
     "dev": "remix dev -c 'node server/index.js'",
     "build": "remix build",
-    "start": "node server/index.js",
-    "lint": "biome check src",
-    "typecheck": "tsc"
+    "start": "node server/index.js"
   },
   "dependencies": {
     "@remix-run/css-bundle": "2.8.1",
@@ -24,8 +22,8 @@
     "react-dom": "18.2.0"
   },
   "devDependencies": {
-    "@remix-run/dev": "2.8.0",
-    "@types/react": "18.2.64",
-    "@types/react-dom": "18.2.21"
+    "@remix-run/dev": "2.8.1",
+    "@types/react": "18.2.74",
+    "@types/react-dom": "18.2.24"
   }
 }
