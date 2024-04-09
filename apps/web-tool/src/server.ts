@@ -2,16 +2,19 @@ import url from 'node:url'
 import express from 'express'
 import promBundle from 'express-prom-bundle'
 import next from 'next'
+import { env } from '~/utils/env'
+import { logger } from '~/utils/log'
 
-const dev = process.env.NODE_ENV !== 'production'
+const dev = env.NODE_ENV !== 'production'
 const hostname = 'localhost'
-const appPort = Number(process.env.APP_PORT) || 3000
-const metricsPort = Number(process.env.METRICS_PORT) || 3001
+const appPort = env.APP_PORT
+const metricsPort = env.METRICS_PORT
 
 const nextServer = next({ dev, hostname, port: appPort })
 const handle = nextServer.getRequestHandler()
 
 const metricsMiddleware = promBundle({
+  autoregister: false,
   includePath: true,
   includeMethod: true,
   excludeRoutes: ['/health', '/favicon.ico', /\/_next/],
@@ -24,7 +27,7 @@ const metricsMiddleware = promBundle({
 })
 
 const healthcheckHandler = express.Router().get('/health', (_, res) => {
-  if (process.env.HEALTHCHECK_UP === 'true') {
+  if (env.HEALTHCHECK === 'UP') {
     return res.status(200).send('UP')
   }
   return res.status(503).send('DOWN')
@@ -42,11 +45,12 @@ nextServer.prepare().then(() => {
   metrics.get('/metrics', metricsMiddleware.metricsMiddleware)
 
   app.listen(appPort, () => {
-    console.info(
-      `> app ready on http://${hostname}:${appPort} with NODE_ENV=${process.env.NODE_ENV} APP_ENV=${process.env.APP_ENV}`,
+    logger.info(
+      `app ready on http://${hostname}:${appPort} with NODE_ENV=${env.NODE_ENV} APP_ENV=${env.APP_ENV}`,
     )
   })
+
   metrics.listen(metricsPort, () => {
-    console.info(`> metrics ready on http://${hostname}:${metricsPort}/metrics`)
+    logger.info(`metrics ready on http://${hostname}:${metricsPort}/metrics`)
   })
 })

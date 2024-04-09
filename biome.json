@@ -1,8 +1,9 @@
 {
   "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
-  "files": {
-    "include": ["apps/*.ts", "apps/*.tsx"],
-    "ignore": ["src/presentation/route/index.ts"]
+  "vcs": {
+    "clientKind": "git",
+    "enabled": true,
+    "useIgnoreFile": true
   },
   "organizeImports": {
     "enabled": true

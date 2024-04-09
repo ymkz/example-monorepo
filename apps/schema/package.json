@@ -1,16 +1,19 @@
 {
-  "name": "schema",
+  "name": "@app/schema",
   "version": "1.0.0",
   "type": "module",
   "private": true,
-  "sideEffects": false,
+  "files": ["dist"],
   "scripts": {
     "dev": "serve -L -s -n -u -p 2000 spec",
-    "build": "node --import=tsimp/import bin/generate.ts"
+    "build": "kubb generate"
   },
   "devDependencies": {
-    "@himenon/openapi-typescript-code-generator": "1.0.9",
-    "serve": "14.2.1",
-    "tsimp": "2.0.11"
+    "@kubb/cli": "2.12.5",
+    "@kubb/core": "2.12.5",
+    "@kubb/swagger": "2.12.5",
+    "@kubb/swagger-ts": "2.12.5",
+    "@kubb/swagger-zod": "2.12.5",
+    "serve": "14.2.1"
   }
 }

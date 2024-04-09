@@ -1,3 +1,6 @@
-import Head from 'next/head'
+import _parseBody from 'next/dist/server/api-utils/node/parse-body'
+import _Head from 'next/head'
 
-export const NextHead = Head
+export const NextHead = _Head
+
+export const parseBody = _parseBody

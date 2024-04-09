@@ -1,12 +1,13 @@
-import { formatISO } from 'date-fns'
+import dayjs from 'dayjs'
 import { pino } from 'pino'
+import { env } from '~/utils/env'
 
 const timestamp = () => {
-  return formatISO(new Date(), { format: 'extended' })
+  return dayjs().toISOString()
 }
 
 export const logger = pino({
-  enabled: process.env.NODE_ENV !== 'test',
+  enabled: env.NODE_ENV !== 'test',
   timestamp: () => `,"time":"${timestamp()}"`,
   formatters: {
     level: (label) => {

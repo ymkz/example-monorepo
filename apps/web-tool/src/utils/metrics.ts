@@ -5,7 +5,7 @@ const isCounter = (metric?: Metric<string>): metric is Counter => {
   return metric instanceof Counter
 }
 
-const getApiErrorCounter = (): Counter<'name'> => {
+const getErrorCounter = (): Counter<'name'> => {
   const name = 'api_error_total'
   const metric = register.getSingleMetric(name)
   if (isCounter(metric)) {
@@ -18,23 +18,23 @@ const getApiErrorCounter = (): Counter<'name'> => {
   })
 }
 
-export const incrementApiErrorCounter = (name: string) => {
-  getApiErrorCounter().labels({ name }).inc()
+export const incrementErrorCounter = (name: string) => {
+  getErrorCounter().labels({ name }).inc()
 }
 
 const isSummary = (metric?: Metric<string>): metric is Summary => {
   return metric instanceof Summary
 }
 
-const getApiRequestSummary = (): Summary<'name' | 'status_code'> => {
-  const name = 'api_request_duration_seconds'
+const getHttpClientRequestSummary = (): Summary<'name' | 'status_code'> => {
+  const name = 'http_client_requests_seconds'
   const metric = register.getSingleMetric(name)
   if (isSummary(metric)) {
     return metric
   }
   return new Summary({
     name,
-    help: 'api_request_duration_seconds duration summary of api responses labeled with: name, status_code',
+    help: 'http_client_requests_seconds duration summary of api responses labeled with: name, status_code',
     labelNames: ['name', 'status_code'],
     percentiles: [0.5, 0.9, 0.99],
     maxAgeSeconds: 300,
@@ -42,6 +42,6 @@ const getApiRequestSummary = (): Summary<'name' | 'status_code'> => {
   })
 }
 
-export const startApiRequestSummary = (name: string) => {
-  return getApiRequestSummary().startTimer({ name })
+export const startHttpClientRequestSummary = (name: string) => {
+  return getHttpClientRequestSummary().startTimer({ name })
 }

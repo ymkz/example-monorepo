@@ -9,13 +9,14 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "lint": "biome check apps",
-    "lint:fix": "biome check apps --apply"
+    "lint:fix": "biome check apps --apply",
+    "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.4",
     "@types/node": "20.12.5",
-    "turbo": "1.13.2",
     "tsup": "8.0.2",
+    "turbo": "1.13.2",
     "typescript": "5.4.4"
   }
 }
