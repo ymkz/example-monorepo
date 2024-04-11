@@ -74,6 +74,9 @@ importers:
 
   apps/web-tool:
     dependencies:
+      '@app/schema':
+        specifier: workspace:*
+        version: link:../schema
       '@mantine/core':
         specifier: 7.7.1
         version: 7.7.1(@mantine/hooks@7.7.1)(@types/react@18.2.74)(react-dom@18.2.0)(react@18.2.0)
@@ -167,8 +170,8 @@ packages:
       '@apidevtools/openapi-schemas': 2.1.0
       '@apidevtools/swagger-methods': 3.0.2
       '@jsdevtools/ono': 7.1.3
-      ajv: 8.11.0
-      ajv-draft-04: 1.0.0(ajv@8.11.0)
+      ajv: 8.12.0
+      ajv-draft-04: 1.0.0(ajv@8.12.0)
       call-me-maybe: 1.0.2
       openapi-types: 12.1.3
     dev: true
@@ -732,8 +735,8 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@floating-ui/react@0.26.11(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-fo01Cu+jzLDVG/AYAV2OtV6flhXvxP5rDaR1Fk8WWhtsFqwk478Dr2HGtB8s0HqQCsFWVbdHYpPjMiQiR/A9VA==}
+  /@floating-ui/react@0.26.12(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-D09o62HrWdIkstF2kGekIKAC0/N/Dl6wo3CQsnLcOmO3LkW6Ik8uIb3kw8JYkwxNCcg+uJ2bpWUiIijTBep05w==}
     peerDependencies:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
@@ -898,8 +901,8 @@ packages:
       '@kubb/core': 2.12.5
       '@kubb/react': 2.12.5
       js-yaml: 4.1.0
-      oas: 24.2.0
-      oas-normalize: 11.0.2
+      oas: 24.2.1
+      oas-normalize: 11.0.3
       openapi-types: 12.1.3
       swagger2openapi: 7.0.8
     transitivePeerDependencies:
@@ -918,7 +921,7 @@ packages:
       react: ^18.2.0
       react-dom: ^18.2.0
     dependencies:
-      '@floating-ui/react': 0.26.11(react-dom@18.2.0)(react@18.2.0)
+      '@floating-ui/react': 0.26.12(react-dom@18.2.0)(react@18.2.0)
       '@mantine/hooks': 7.7.1(react@18.2.0)
       clsx: 2.1.0
       react: 18.2.0
@@ -1379,17 +1382,6 @@ packages:
       mime-types: 2.1.35
       negotiator: 0.6.3
 
-  /ajv-draft-04@1.0.0(ajv@8.11.0):
-    resolution: {integrity: sha512-mv00Te6nmYbRp5DCwclxtt7yV/joXJPGS7nM+97GdxvuttCOfgI3K4U25zboyeX0O+myI8ERluxQe5wljMmVIw==}
-    peerDependencies:
-      ajv: ^8.5.0
-    peerDependenciesMeta:
-      ajv:
-        optional: true
-    dependencies:
-      ajv: 8.11.0
-    dev: true
-
   /ajv-draft-04@1.0.0(ajv@8.12.0):
     resolution: {integrity: sha512-mv00Te6nmYbRp5DCwclxtt7yV/joXJPGS7nM+97GdxvuttCOfgI3K4U25zboyeX0O+myI8ERluxQe5wljMmVIw==}
     peerDependencies:
@@ -1662,8 +1654,8 @@ packages:
     engines: {node: '>=14.16'}
     dev: true
 
-  /caniuse-lite@1.0.30001607:
-    resolution: {integrity: sha512-WcvhVRjXLKFB/kmOFVwELtMxyhq3iM/MvmXcyCe2PNf166c39mptscOc/45TTS96n2gpNV2z7+NakArTWZCQ3w==}
+  /caniuse-lite@1.0.30001608:
+    resolution: {integrity: sha512-cjUJTQkk9fQlJR2s4HMuPMvTiRggl0rAVMtthQuyOlDWuqHXqN8azLq+pi8B2TjwKJ32diHjUqRIKeFX4z1FoA==}
     dev: false
 
   /chalk-template@0.4.0:
@@ -3135,7 +3127,7 @@ packages:
       '@next/env': 14.1.4
       '@swc/helpers': 0.5.2
       busboy: 1.6.0
-      caniuse-lite: 1.0.30001607
+      caniuse-lite: 1.0.30001608
       graceful-fs: 4.2.11
       postcss: 8.4.31
       react: 18.2.0
@@ -3224,8 +3216,8 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /oas-normalize@11.0.2:
-    resolution: {integrity: sha512-UE1VXIuqT1KKGB/QEnm/VqdPhRe3q9zgHHwEdDLlRC//vbj9cGvf27U9ONDhNnw3rY78H2e9ogpoVb237AhcrQ==}
+  /oas-normalize@11.0.3:
+    resolution: {integrity: sha512-YsPjVgbHuybhRXblRCRv+Jie5U26N30FLJSS+IyI/vkTryOlxnUbTKuALkO3/5vU9Ki/KIwl13KsIdf8mrdI0Q==}
     engines: {node: '>=18'}
     dependencies:
       '@readme/openapi-parser': 2.5.0(openapi-types@12.1.3)
@@ -3265,8 +3257,8 @@ packages:
       yaml: 1.10.2
     dev: true
 
-  /oas@24.2.0:
-    resolution: {integrity: sha512-du2JcGeVKJYU9lIpJi4t8kSEq2jltgFrHS3gV10htPvfSr5KuI5dLVLWmPcdTHYnFMyN8zUxMj0VL50w5sdveA==}
+  /oas@24.2.1:
+    resolution: {integrity: sha512-lk8/TXgfqq3StKe1wMYx/vGd0zojudhBwjTNqAVgVD32PaJRoocVB25hDPEjTu3XyNOUJsTAZ7dvSahkZ3ZUZQ==}
     engines: {node: '>=18'}
     dependencies:
       '@readme/json-schema-ref-parser': 1.2.0
@@ -3275,7 +3267,7 @@ packages:
       jsonpath-plus: 8.1.0
       jsonpointer: 5.0.1
       memoizee: 0.4.15
-      oas-normalize: 11.0.2
+      oas-normalize: 11.0.3
       openapi-types: 12.1.3
       path-to-regexp: 6.2.2
       remove-undefined-objects: 5.0.0
