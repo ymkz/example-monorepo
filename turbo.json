@@ -7,10 +7,8 @@
     },
     "build": {
       "dependsOn": ["^build"],
-      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+      "outputs": [".next/**", "!.next/cache/**", "build/**", "dist/**"]
     },
-    "typecheck": {
-      "dependsOn": ["^typecheck"]
-    }
+    "typecheck": {}
   }
 }

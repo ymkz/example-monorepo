@@ -1,6 +1,8 @@
 import { createServer } from 'node:http'
 import { createApp, toNodeListener } from 'h3'
+import { getUserByUserIdRouter } from '~/routes/getUserByUserId'
 import { healthcheckRouter } from '~/routes/healthcheck'
+import { listUsersRouter } from '~/routes/listUsers'
 import { env } from '~/utils/env'
 import { logger } from '~/utils/log'
 
@@ -27,6 +29,8 @@ const app = createApp({
 // app.use(fromNodeMiddleware(metricsMiddleware))
 
 app.use(healthcheckRouter)
+app.use(listUsersRouter)
+app.use(getUserByUserIdRouter)
 
 createServer(toNodeListener(app))
   .listen(env.PORT)

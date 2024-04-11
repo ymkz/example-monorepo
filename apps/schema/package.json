@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "type": "module",
   "private": true,
-  "files": ["dist"],
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "serve -L -s -n -u -p 2000 spec",
-    "build": "kubb generate"
+    "build": "kubb generate",
+    "typecheck": "tsc"
   },
   "devDependencies": {
     "@kubb/cli": "2.12.5",
@@ -14,6 +16,7 @@
     "@kubb/swagger": "2.12.5",
     "@kubb/swagger-ts": "2.12.5",
     "@kubb/swagger-zod": "2.12.5",
-    "serve": "14.2.1"
+    "serve": "14.2.1",
+    "zod": "3.22.4"
   }
 }

@@ -1,4 +1,4 @@
-openapi: 3.0.0
+openapi: 3.0.3
 info:
   version: 1.0.0
   title: API仕様書
@@ -20,18 +20,12 @@ paths:
       parameters:
         - schema:
             type: string
-            format: numeric
-            minimum: 1
-            maximum: 20
             description: 検索数上限
           required: false
           name: limit
           in: query
         - schema:
             type: string
-            format: numeric
-            minimum: 0
-            maximum: 50
             description: ページネーションのオフセット
           required: false
           name: offset
@@ -63,7 +57,7 @@ paths:
   "/users/{userId}":
     get:
       operationId: getUserByUserId
-      description: get user by user-id
+      description: get user by userId
       tags:
         - user
       parameters:
