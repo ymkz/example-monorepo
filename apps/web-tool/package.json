@@ -10,7 +10,6 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@app/schema": "workspace:*",
     "@mantine/core": "7.7.1",
     "@mantine/dates": "7.7.1",
     "@mantine/form": "7.7.1",

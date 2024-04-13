@@ -11,7 +11,7 @@ export const logger = pino({
   timestamp: () => `,"time":"${timestamp()}"`,
   formatters: {
     level: (label) => {
-      return { level: label }
+      return { severity: label }
     },
     bindings: () => {
       return {}

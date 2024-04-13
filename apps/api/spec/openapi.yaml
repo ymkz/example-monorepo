@@ -1,0 +1,129 @@
+openapi: 3.0.3
+info:
+  version: 1.0.0
+  title: API Specification
+  description: TBD
+servers:
+  - url: http://localhost:5000
+    description: ローカル環境
+tags:
+  - name: user
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+      required:
+        - id
+        - name
+    ProblemDetails:
+      type: object
+      properties:
+        title:
+          type: string
+          description: 主要なエラーの要因のメッセージ
+        type:
+          type: string
+          description: 呼び出し元APIの定義しているエラーコード
+        detail:
+          type: string
+          description: エラーの詳細に関するメッセージ
+        status:
+          type: integer
+          minimum: 400
+          maximum: 600
+          description: HTTPステータスコード
+          example: 500
+      required:
+        - title
+        - type
+        - detail
+        - status
+      description: Problem Details (RFC 9457)
+  parameters: {}
+paths:
+  /users:
+    get:
+      operationId: listUsers
+      description: Userの一覧を取得
+      tags:
+        - user
+      parameters:
+        - schema:
+            type: number
+            nullable: true
+            description: 検索数上限
+          required: false
+          name: limit
+          in: query
+        - schema:
+            type: number
+            nullable: true
+            description: ページネーションのオフセット
+          required: false
+          name: offset
+          in: query
+      responses:
+        "200":
+          description: 正常応答
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/User"
+        "400":
+          description: リクエスト不正
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "500":
+          description: エラー応答
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+  /users/{userId}:
+    get:
+      operationId: getUserByUserId
+      description: 指定したIdのUserを取得
+      tags:
+        - user
+      parameters:
+        - schema:
+            type: string
+            minLength: 1
+            maxLength: 8
+          required: true
+          name: userId
+          in: path
+      responses:
+        "200":
+          description: 正常応答
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          description: リクエスト不正
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "404":
+          description: 存在しないユーザー
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "500":
+          description: エラー応答
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
