@@ -16,9 +16,9 @@ import { logger } from '~/utils/log'
 
 const app = new OpenAPIHono({ defaultHook: validationHook })
 
-app.use(secureHeaders())
-app.use(accessMetrics())
 app.use(accessLogger())
+app.use(accessMetrics())
+app.use(secureHeaders())
 
 app.notFound(notFoundHandler)
 app.onError(errorHandler)
