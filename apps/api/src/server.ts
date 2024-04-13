@@ -38,14 +38,14 @@ app.get('/metrics', async (ctx) => {
 })
 
 if (env.APP_ENV === 'local') {
-  const openapiDocument = app.getOpenAPIDocument({
+  const document = app.getOpenAPIDocument({
     openapi: '3.0.3',
     info: { version: '1.0.0', title: 'API Specification', description: 'TBD' },
     servers: [{ url: 'http://localhost:5000', description: 'ローカル環境' }],
     tags: [{ name: 'user' }],
   })
-  writeFileSync('spec/openapi.json', JSON.stringify(openapiDocument, null, 2))
-  writeFileSync('spec/openapi.yaml', stringify(openapiDocument))
+  writeFileSync('spec/openapi.json', JSON.stringify(document, null, 2))
+  writeFileSync('spec/openapi.yaml', stringify(document))
   app.use('/spec/*', serveStatic())
 }
 

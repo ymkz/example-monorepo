@@ -6,7 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignore": ["spec"]
+    "ignore": ["**/spec/*"]
   },
   "organizeImports": {
     "enabled": true
