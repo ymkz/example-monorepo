@@ -1,7 +1,7 @@
 import type { RouteHandler } from '@hono/zod-openapi'
 import { z } from '@hono/zod-openapi'
 import { createRoute } from '@hono/zod-openapi'
-import { problemDetail } from '~/presenter/schema'
+import { problemDetail } from '~/presenter/schema/promlem-details'
 import { userSchema } from '~/presenter/schema/user'
 import { logger } from '~/utils/log'
 
