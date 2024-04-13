@@ -46,7 +46,7 @@ nextServer.prepare().then(() => {
 
   app.listen(appPort, () => {
     logger.info(
-      `app ready on http://${hostname}:${appPort} with NODE_ENV=${env.NODE_ENV} APP_ENV=${env.APP_ENV}`,
+      `app ready on http://${hostname}:${appPort} NODE_ENV=${env.NODE_ENV} APP_ENV=${env.APP_ENV}`,
     )
   })
 

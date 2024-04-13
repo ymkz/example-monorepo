@@ -8,12 +8,16 @@ import { stringify } from 'yaml'
 import { getUserByIdHandler, getUserByIdRoute } from '~/presenter/getUserById'
 import { errorHandler, notFoundHandler, validationHook } from '~/presenter/hook'
 import { listUsersHandler, listUsersRoute } from '~/presenter/listUsers'
+import { accessLogger } from '~/presenter/middleware/logger'
+import { accessMetrics } from '~/presenter/middleware/metrics'
 import { env } from '~/utils/env'
 import { logger } from '~/utils/log'
 
 const app = new OpenAPIHono({ defaultHook: validationHook })
 
 app.use(secureHeaders())
+app.use(accessMetrics())
+app.use(accessLogger())
 
 app.notFound(notFoundHandler)
 app.onError(errorHandler)

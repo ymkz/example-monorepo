@@ -3,6 +3,7 @@ import { z } from '@hono/zod-openapi'
 import { createRoute } from '@hono/zod-openapi'
 import { problemDetail } from '~/presenter/schema'
 import { userSchema } from '~/presenter/schema/user'
+import { logger } from '~/utils/log'
 
 export const listUsersRoute = createRoute({
   method: 'get',
@@ -34,8 +35,6 @@ export const listUsersRoute = createRoute({
 
 export const listUsersHandler: RouteHandler<typeof listUsersRoute> = (ctx) => {
   const query = ctx.req.valid('query')
-  return ctx.json([
-    { id: 'user1', name: 'john' },
-    { id: 'user2', name: 'doe' },
-  ])
+  logger.info('listUsersHandler')
+  return ctx.json([{ id: 'user1', name: 'john' }])
 }

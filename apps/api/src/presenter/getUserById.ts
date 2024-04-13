@@ -3,6 +3,7 @@ import { z } from '@hono/zod-openapi'
 import { createRoute } from '@hono/zod-openapi'
 import { problemDetail } from '~/presenter/schema'
 import { userSchema } from '~/presenter/schema/user'
+import { logger } from '~/utils/log'
 
 export const getUserByIdRoute = createRoute({
   method: 'get',
@@ -37,5 +38,6 @@ export const getUserByIdRoute = createRoute({
 
 export const getUserByIdHandler: RouteHandler<typeof getUserByIdRoute> = (ctx) => {
   const param = ctx.req.valid('param')
+  logger.info('getUserByIdHandler')
   return ctx.json({ id: param.userId, name: 'john' })
 }
