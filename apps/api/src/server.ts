@@ -4,6 +4,7 @@ import { serveStatic } from '@hono/node-server/serve-static'
 import { OpenAPIHono } from '@hono/zod-openapi'
 import { showRoutes } from 'hono/dev'
 import { secureHeaders } from 'hono/secure-headers'
+import { register } from 'prom-client'
 import { stringify } from 'yaml'
 import { getUserByIdHandler, getUserByIdRoute } from '~/presenter/getUserById'
 import { errorHandler, notFoundHandler, validationHook } from '~/presenter/hook'
@@ -30,6 +31,10 @@ app.get('/health', (ctx) => {
     return ctx.text('UP', { status: 200 })
   }
   return ctx.text('DOWN', { status: 503 })
+})
+app.get('/metrics', async (ctx) => {
+  const metrics = await register.metrics()
+  return ctx.text(metrics)
 })
 
 if (env.APP_ENV === 'local') {

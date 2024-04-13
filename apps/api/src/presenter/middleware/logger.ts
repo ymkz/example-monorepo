@@ -1,7 +1,7 @@
 import { createMiddleware } from 'hono/factory'
 import { logger } from '~/utils/log'
 
-const IGNORE_PATHS = ['/health', '/favicon.ico']
+const IGNORE_PATHS = ['/health', '/metrics', '/favicon.ico']
 
 export const accessLogger = () => {
   return createMiddleware(async (ctx, next) => {
