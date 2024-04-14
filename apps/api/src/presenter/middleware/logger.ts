@@ -1,7 +1,7 @@
 import { createMiddleware } from 'hono/factory'
 import { logger } from '~/utils/log'
 
-const IGNORE_PATHS = ['/health', '/metrics', '/favicon.ico']
+const IGNORE_PATHS = ['/health', '/metrics', '/spec', '/favicon.ico']
 
 const duration = (start: number) => {
   const delta = performance.now() - start
@@ -10,8 +10,10 @@ const duration = (start: number) => {
 
 export const accessLogger = () => {
   return createMiddleware(async (ctx, next) => {
-    if (IGNORE_PATHS.includes(ctx.req.path)) {
-      return await next()
+    for (const ignorePath of IGNORE_PATHS) {
+      if (ctx.req.path.startsWith(ignorePath)) {
+        return await next()
+      }
     }
 
     const start = performance.now()

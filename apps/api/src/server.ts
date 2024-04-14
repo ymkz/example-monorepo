@@ -6,11 +6,14 @@ import { showRoutes } from 'hono/dev'
 import { secureHeaders } from 'hono/secure-headers'
 import { register } from 'prom-client'
 import { stringify } from 'yaml'
+import { createUserHandler, createUserRoute } from '~/presenter/createUser'
 import { getUserByIdHandler, getUserByIdRoute } from '~/presenter/getUserById'
 import { errorHandler, notFoundHandler, validationHook } from '~/presenter/hook'
 import { listUsersHandler, listUsersRoute } from '~/presenter/listUsers'
 import { accessLogger } from '~/presenter/middleware/logger'
 import { accessMetrics } from '~/presenter/middleware/metrics'
+import { removeUserHandler, removeUserRoute } from '~/presenter/removeUser'
+import { updateUserHandler, updateUserRoute } from '~/presenter/updateUser'
 import { env } from '~/utils/env'
 import { logger } from '~/utils/log'
 
@@ -25,12 +28,15 @@ app.onError(errorHandler)
 
 app.openapi(listUsersRoute, listUsersHandler)
 app.openapi(getUserByIdRoute, getUserByIdHandler)
+app.openapi(createUserRoute, createUserHandler)
+app.openapi(updateUserRoute, updateUserHandler)
+app.openapi(removeUserRoute, removeUserHandler)
 
 app.get('/health', (ctx) => {
   if (env.HEALTHCHECK === 'UP') {
-    return ctx.text('UP', { status: 200 })
+    return ctx.text('UP', 200)
   }
-  return ctx.text('DOWN', { status: 503 })
+  return ctx.text('DOWN', 503)
 })
 app.get('/metrics', async (ctx) => {
   const metrics = await register.metrics()

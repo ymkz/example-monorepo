@@ -3,7 +3,7 @@ import { Summary, collectDefaultMetrics } from 'prom-client'
 
 collectDefaultMetrics()
 
-const IGNORE_PATHS = ['/health', '/metrics', '/favicon.ico']
+const IGNORE_PATHS = ['/health', '/metrics', '/spec', '/favicon.ico']
 
 const summary = new Summary({
   name: 'http_server_requests_seconds',
@@ -16,8 +16,10 @@ const summary = new Summary({
 
 export const accessMetrics = () => {
   return createMiddleware(async (ctx, next) => {
-    if (IGNORE_PATHS.includes(ctx.req.path)) {
-      return await next()
+    for (const ignorePath of IGNORE_PATHS) {
+      if (ctx.req.path.startsWith(ignorePath)) {
+        return await next()
+      }
     }
 
     const measure = summary.startTimer({ method: ctx.req.method, path: ctx.req.path })

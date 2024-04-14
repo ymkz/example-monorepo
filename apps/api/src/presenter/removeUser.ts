@@ -4,19 +4,18 @@ import { problemDetail } from '~/presenter/schema/promlem-details'
 import { userSchema } from '~/presenter/schema/user'
 import { logger } from '~/utils/log'
 
-export const getUserByIdRoute = createRoute({
-  method: 'get',
+export const removeUserRoute = createRoute({
+  method: 'delete',
   path: '/users/:id',
-  operationId: 'getUserByUserId',
-  description: '指定したIdのUserを取得',
+  operationId: 'removeUser',
+  description: '指定したIdのUserを削除',
   tags: ['user'],
   request: {
     params: userSchema.pick({ id: true }),
   },
   responses: {
-    200: {
+    204: {
       description: '正常応答',
-      content: { 'application/json': { schema: userSchema } },
     },
     400: {
       description: 'リクエスト不正',
@@ -33,8 +32,8 @@ export const getUserByIdRoute = createRoute({
   },
 })
 
-export const getUserByIdHandler: RouteHandler<typeof getUserByIdRoute> = (ctx) => {
+export const removeUserHandler: RouteHandler<typeof removeUserRoute> = (ctx) => {
   const param = ctx.req.valid('param')
-  logger.info({ param }, 'getUserByIdHandler')
-  return ctx.json({ id: param.id, name: 'john' })
+  logger.info({ param }, 'removeUserHandler')
+  return ctx.body(null, 204)
 }

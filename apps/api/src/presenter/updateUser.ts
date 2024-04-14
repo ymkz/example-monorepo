@@ -4,14 +4,21 @@ import { problemDetail } from '~/presenter/schema/promlem-details'
 import { userSchema } from '~/presenter/schema/user'
 import { logger } from '~/utils/log'
 
-export const getUserByIdRoute = createRoute({
-  method: 'get',
+export const updateUserRoute = createRoute({
+  method: 'put',
   path: '/users/:id',
-  operationId: 'getUserByUserId',
-  description: '指定したIdのUserを取得',
+  operationId: 'updateUser',
+  description: '指定したIdのUserを更新',
   tags: ['user'],
   request: {
     params: userSchema.pick({ id: true }),
+    body: {
+      content: {
+        'application/json': {
+          schema: userSchema.omit({ id: true }),
+        },
+      },
+    },
   },
   responses: {
     200: {
@@ -33,8 +40,9 @@ export const getUserByIdRoute = createRoute({
   },
 })
 
-export const getUserByIdHandler: RouteHandler<typeof getUserByIdRoute> = (ctx) => {
+export const updateUserHandler: RouteHandler<typeof updateUserRoute> = (ctx) => {
   const param = ctx.req.valid('param')
-  logger.info({ param }, 'getUserByIdHandler')
-  return ctx.json({ id: param.id, name: 'john' })
+  const body = ctx.req.valid('json')
+  logger.info({ body, param }, 'updateUserHandler')
+  return ctx.json({ id: param.id, name: body.name })
 }

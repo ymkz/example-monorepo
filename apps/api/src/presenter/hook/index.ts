@@ -6,13 +6,13 @@ import { logger } from '~/utils/log'
 export const notFoundHandler: NotFoundHandler = (ctx) => {
   logger.warn(
     { req: { url: ctx.req.url, method: ctx.req.method } },
-    '存在しないパスへのリクエストが発生しました',
+    '存在しないリソースへのリクエストが発生しました',
   )
   return ctx.json(
     {
       title: 'Not Found',
-      type: '',
-      detail: 'requested path not found',
+      type: 'DEFAULT',
+      detail: 'requested resource not found',
       status: 404,
     },
     404,
@@ -24,7 +24,7 @@ export const errorHandler: ErrorHandler = (err, ctx) => {
   return ctx.json(
     {
       title: 'Internal Server Error',
-      type: '',
+      type: 'DEFAULT',
       detail: 'unexpected error has occurred',
       status: 500,
     },
@@ -43,7 +43,7 @@ export const validationHook = (result: Result, ctx: Context) => {
     return ctx.json(
       {
         title: 'Bad Request',
-        type: '',
+        type: 'DEFAULT',
         detail: fromZodError(result.error).message,
         status: 500,
       },

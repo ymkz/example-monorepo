@@ -35,6 +35,6 @@ export const listUsersRoute = createRoute({
 
 export const listUsersHandler: RouteHandler<typeof listUsersRoute> = (ctx) => {
   const query = ctx.req.valid('query')
-  logger.info('listUsersHandler')
+  logger.info({ query }, 'listUsersHandler')
   return ctx.json([{ id: 'user1', name: 'john' }])
 }

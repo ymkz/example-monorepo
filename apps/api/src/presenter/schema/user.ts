@@ -2,7 +2,7 @@ import { z } from '@hono/zod-openapi'
 
 export const userSchema = z
   .object({
-    id: z.string(),
-    name: z.string(),
+    id: z.string().min(1).max(8),
+    name: z.string().min(1).max(24),
   })
   .openapi('User')
