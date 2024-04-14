@@ -3,7 +3,7 @@ import { z } from '@hono/zod-openapi'
 /**
  * @see https://tex2e.github.io/rfc-translater/html/rfc9457.html
  */
-export const problemDetail = z
+export const ProblemDetail = z
   .object({
     title: z.string().openapi({ description: '主要なエラーの要因のメッセージ' }),
     type: z.string().openapi({ description: '呼び出し元APIの定義しているエラーコード' }),

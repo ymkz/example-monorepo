@@ -1,8 +1,8 @@
 import type { RouteHandler } from '@hono/zod-openapi'
 import { z } from '@hono/zod-openapi'
 import { createRoute } from '@hono/zod-openapi'
-import { problemDetail } from '~/presenter/schema/promlem-details'
-import { userSchema } from '~/presenter/schema/user'
+import { ProblemDetail } from '~/presenter/schema/promlem-details'
+import { User } from '~/presenter/schema/user'
 import { logger } from '~/utils/log'
 
 export const listUsersRoute = createRoute({
@@ -20,15 +20,15 @@ export const listUsersRoute = createRoute({
   responses: {
     200: {
       description: '正常応答',
-      content: { 'application/json': { schema: z.array(userSchema) } },
+      content: { 'application/json': { schema: z.array(User) } },
     },
     400: {
       description: 'リクエスト不正',
-      content: { 'application/json': { schema: problemDetail } },
+      content: { 'application/json': { schema: ProblemDetail } },
     },
     500: {
       description: 'エラー応答',
-      content: { 'application/json': { schema: problemDetail } },
+      content: { 'application/json': { schema: ProblemDetail } },
     },
   },
 })
