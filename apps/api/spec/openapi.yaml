@@ -14,9 +14,7 @@ components:
       type: object
       properties:
         id:
-          type: string
-          minLength: 1
-          maxLength: 8
+          type: integer
         name:
           type: string
           minLength: 1
@@ -136,9 +134,7 @@ paths:
         - user
       parameters:
         - schema:
-            type: string
-            minLength: 1
-            maxLength: 8
+            type: integer
           required: true
           name: id
           in: path
@@ -174,9 +170,7 @@ paths:
         - user
       parameters:
         - schema:
-            type: string
-            minLength: 1
-            maxLength: 8
+            type: integer
           required: true
           name: id
           in: path
@@ -224,9 +218,7 @@ paths:
         - user
       parameters:
         - schema:
-            type: string
-            minLength: 1
-            maxLength: 8
+            type: integer
           required: true
           name: id
           in: path

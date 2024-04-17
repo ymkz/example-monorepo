@@ -22,9 +22,7 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "minLength": 1,
-            "maxLength": 8
+            "type": "integer"
           },
           "name": {
             "type": "string",
@@ -206,9 +204,7 @@
         "parameters": [
           {
             "schema": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 8
+              "type": "integer"
             },
             "required": true,
             "name": "id",
@@ -267,9 +263,7 @@
         "parameters": [
           {
             "schema": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 8
+              "type": "integer"
             },
             "required": true,
             "name": "id",
@@ -347,9 +341,7 @@
         "parameters": [
           {
             "schema": {
-              "type": "string",
-              "minLength": 1,
-              "maxLength": 8
+              "type": "integer"
             },
             "required": true,
             "name": "id",

@@ -1,9 +1,9 @@
 import type { RouteHandler } from '@hono/zod-openapi'
 import { z } from '@hono/zod-openapi'
 import { createRoute } from '@hono/zod-openapi'
+import { userRepository } from '~/gateway/db/user'
 import { ProblemDetail } from '~/presenter/schema/promlem-details'
 import { User } from '~/presenter/schema/user'
-import { logger } from '~/utils/log'
 
 export const listUsersRoute = createRoute({
   method: 'get',
@@ -33,8 +33,10 @@ export const listUsersRoute = createRoute({
   },
 })
 
-export const listUsersHandler: RouteHandler<typeof listUsersRoute> = (ctx) => {
+export const listUsersHandler: RouteHandler<typeof listUsersRoute> = async (ctx) => {
   const query = ctx.req.valid('query')
-  logger.info({ query }, 'listUsersHandler')
-  return ctx.json([{ id: 'user1', name: 'john' }])
+
+  const results = await userRepository.search(query.limit, query.offset)
+
+  return ctx.json(results.map((result) => ({ id: result.id, name: result.name })))
 }

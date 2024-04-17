@@ -8,9 +8,9 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
+    "typecheck": "turbo run typecheck",
     "lint": "biome check apps",
-    "lint:fix": "biome check apps --apply",
-    "typecheck": "turbo run typecheck"
+    "lint:fix": "biome check apps --apply"
   },
   "devDependencies": {
     "@biomejs/biome": "1.6.4",

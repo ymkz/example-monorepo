@@ -1,11 +1,11 @@
-import type { Context, ErrorHandler, NotFoundHandler } from 'hono'
-import type { ZodError } from 'zod'
+import type { Hook } from '@hono/zod-openapi'
+import type { Env, ErrorHandler, NotFoundHandler } from 'hono'
 import { fromZodError } from 'zod-validation-error'
 import { logger } from '~/utils/log'
 
 export const notFoundHandler: NotFoundHandler = (ctx) => {
   logger.warn(
-    { req: { url: ctx.req.url, method: ctx.req.method } },
+    { notfoundRequest: { url: ctx.req.url, method: ctx.req.method } },
     '存在しないリソースへのリクエストが発生しました',
   )
   return ctx.json(
@@ -20,7 +20,7 @@ export const notFoundHandler: NotFoundHandler = (ctx) => {
 }
 
 export const errorHandler: ErrorHandler = (err, ctx) => {
-  logger.error(err, '予期しないエラーが発生しました')
+  logger.error({ unexpectedError: err }, '予期しないエラーが発生しました')
   return ctx.json(
     {
       title: 'Internal Server Error',
@@ -32,20 +32,16 @@ export const errorHandler: ErrorHandler = (err, ctx) => {
   )
 }
 
-type Result = { success: true; data: unknown } | { success: false; error: ZodError }
-
-export const validationHook = (result: Result, ctx: Context) => {
+export const validationHook: Hook<unknown, Env, '', unknown> = (result, ctx) => {
   if (!result.success) {
-    logger.warn(
-      { validationError: fromZodError(result.error).details },
-      'バリデーションでエラーが発生しました',
-    )
+    const { details, message } = fromZodError(result.error)
+    logger.warn({ validationError: details }, 'バリデーションでエラーが発生しました')
     return ctx.json(
       {
         title: 'Bad Request',
         type: 'DEFAULT',
-        detail: fromZodError(result.error).message,
-        status: 500,
+        detail: message,
+        status: 400,
       },
       400,
     )
