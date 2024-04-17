@@ -38,5 +38,5 @@ export const createUserRoute = createRoute({
 export const createUserHandler: RouteHandler<typeof createUserRoute> = (ctx) => {
   const body = ctx.req.valid('json')
   logger.info({ body }, 'createUserHandler')
-  return ctx.json({ id: 'TODO', name: body.name })
+  return ctx.json({ id: 1, name: body.name })
 }
