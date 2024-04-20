@@ -6,7 +6,7 @@
     "useIgnoreFile": true
   },
   "files": {
-    "ignore": ["**/spec/**/*", "**/db/**/*"]
+    "ignore": ["**/spec/**/*", "**/db/migration/**/*"]
   },
   "organizeImports": {
     "enabled": true

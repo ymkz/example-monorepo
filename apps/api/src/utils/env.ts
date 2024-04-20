@@ -11,6 +11,7 @@ export const env = createEnv({
     // config
     NODE_ENV: z.enum(['production', 'development', 'test']),
     APP_ENV: z.enum(['local', 'dev', 'stg', 'prod', 'test']),
+    DATABASE_URL: z.string(),
 
     // k8s configmap
     HEALTHCHECK: z.enum(['UP', 'DOWN']),

@@ -1,7 +1,7 @@
 import type { RouteHandler } from '@hono/zod-openapi'
 import { createRoute } from '@hono/zod-openapi'
-import { ProblemDetail } from '~/presenter/schema/promlem-details'
-import { User } from '~/presenter/schema/user'
+import { ProblemDetailSchema } from '~/domain/schema/promlem-details'
+import { UserSchema } from '~/domain/schema/user'
 import { logger } from '~/utils/log'
 
 export const updateUserRoute = createRoute({
@@ -11,11 +11,11 @@ export const updateUserRoute = createRoute({
   description: '指定したIdのUserを更新',
   tags: ['user'],
   request: {
-    params: User.pick({ id: true }),
+    params: UserSchema.pick({ id: true }),
     body: {
       content: {
         'application/json': {
-          schema: User.omit({ id: true }),
+          schema: UserSchema.omit({ id: true }),
         },
       },
     },
@@ -23,19 +23,19 @@ export const updateUserRoute = createRoute({
   responses: {
     200: {
       description: '正常応答',
-      content: { 'application/json': { schema: User } },
+      content: { 'application/json': { schema: UserSchema } },
     },
     400: {
       description: 'リクエスト不正',
-      content: { 'application/json': { schema: ProblemDetail } },
+      content: { 'application/json': { schema: ProblemDetailSchema } },
     },
     404: {
       description: '存在しないユーザー',
-      content: { 'application/json': { schema: ProblemDetail } },
+      content: { 'application/json': { schema: ProblemDetailSchema } },
     },
     500: {
       description: 'エラー応答',
-      content: { 'application/json': { schema: ProblemDetail } },
+      content: { 'application/json': { schema: ProblemDetailSchema } },
     },
   },
 })
@@ -44,5 +44,5 @@ export const updateUserHandler: RouteHandler<typeof updateUserRoute> = (ctx) => 
   const param = ctx.req.valid('param')
   const body = ctx.req.valid('json')
   logger.info({ body, param }, 'updateUserHandler')
-  return ctx.json({ id: param.id, name: body.name })
+  return ctx.json({ id: 1, name: 'johndoe', createdAt: '2024-04-01T01:23:45Z' })
 }

@@ -1,9 +1,9 @@
 import type { RouteHandler } from '@hono/zod-openapi'
 import { z } from '@hono/zod-openapi'
 import { createRoute } from '@hono/zod-openapi'
-import { userRepository } from '~/gateway/db/user'
-import { ProblemDetail } from '~/presenter/schema/promlem-details'
-import { User } from '~/presenter/schema/user'
+import { ProblemDetailSchema } from '~/domain/schema/promlem-details'
+import { UserSchema } from '~/domain/schema/user'
+import { logger } from '~/utils/log'
 
 export const listUsersRoute = createRoute({
   method: 'get',
@@ -20,23 +20,21 @@ export const listUsersRoute = createRoute({
   responses: {
     200: {
       description: '正常応答',
-      content: { 'application/json': { schema: z.array(User) } },
+      content: { 'application/json': { schema: z.array(UserSchema) } },
     },
     400: {
       description: 'リクエスト不正',
-      content: { 'application/json': { schema: ProblemDetail } },
+      content: { 'application/json': { schema: ProblemDetailSchema } },
     },
     500: {
       description: 'エラー応答',
-      content: { 'application/json': { schema: ProblemDetail } },
+      content: { 'application/json': { schema: ProblemDetailSchema } },
     },
   },
 })
 
 export const listUsersHandler: RouteHandler<typeof listUsersRoute> = async (ctx) => {
   const query = ctx.req.valid('query')
-
-  const results = await userRepository.search(query.limit, query.offset)
-
-  return ctx.json(results.map((result) => ({ id: result.id, name: result.name })))
+  logger.info({ query }, 'listUsersHandler')
+  return ctx.json([])
 }

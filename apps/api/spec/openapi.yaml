@@ -15,13 +15,30 @@ components:
       properties:
         id:
           type: integer
+          description: ユーザーID
+          example: 1
         name:
           type: string
           minLength: 1
           maxLength: 24
+          description: 名前
+          example: johndoe
+        createdAt:
+          type: string
+          description: 作成日時（ISO 8601）
+          example: 2024-04-01T01:23:45Z
+        updatedAt:
+          type: string
+          description: 更新日時（ISO 8601）（更新されるたびに更新日時が入る）
+          example: 2024-04-01T01:23:45Z
+        deletedAt:
+          type: string
+          description: 削除日時（ISO 8601）（論理削除されたら削除日時が入る）
+          example: 2024-04-01T01:23:45Z
       required:
         - id
         - name
+        - createdAt
     ProblemDetails:
       type: object
       properties:
@@ -105,8 +122,23 @@ paths:
                   type: string
                   minLength: 1
                   maxLength: 24
+                  description: 名前
+                  example: johndoe
+                createdAt:
+                  type: string
+                  description: 作成日時（ISO 8601）
+                  example: 2024-04-01T01:23:45Z
+                updatedAt:
+                  type: string
+                  description: 更新日時（ISO 8601）（更新されるたびに更新日時が入る）
+                  example: 2024-04-01T01:23:45Z
+                deletedAt:
+                  type: string
+                  description: 削除日時（ISO 8601）（論理削除されたら削除日時が入る）
+                  example: 2024-04-01T01:23:45Z
               required:
                 - name
+                - createdAt
       responses:
         "200":
           description: 正常応答
@@ -135,6 +167,8 @@ paths:
       parameters:
         - schema:
             type: integer
+            description: ユーザーID
+            example: 1
           required: true
           name: id
           in: path
@@ -171,6 +205,8 @@ paths:
       parameters:
         - schema:
             type: integer
+            description: ユーザーID
+            example: 1
           required: true
           name: id
           in: path
@@ -184,8 +220,23 @@ paths:
                   type: string
                   minLength: 1
                   maxLength: 24
+                  description: 名前
+                  example: johndoe
+                createdAt:
+                  type: string
+                  description: 作成日時（ISO 8601）
+                  example: 2024-04-01T01:23:45Z
+                updatedAt:
+                  type: string
+                  description: 更新日時（ISO 8601）（更新されるたびに更新日時が入る）
+                  example: 2024-04-01T01:23:45Z
+                deletedAt:
+                  type: string
+                  description: 削除日時（ISO 8601）（論理削除されたら削除日時が入る）
+                  example: 2024-04-01T01:23:45Z
               required:
                 - name
+                - createdAt
       responses:
         "200":
           description: 正常応答
@@ -219,6 +270,8 @@ paths:
       parameters:
         - schema:
             type: integer
+            description: ユーザーID
+            example: 1
           required: true
           name: id
           in: path
