@@ -25,8 +25,8 @@
     "zod-validation-error": "3.1.0"
   },
   "devDependencies": {
-    "@types/better-sqlite3": "7.6.9",
-    "drizzle-kit": "0.20.16",
+    "@types/better-sqlite3": "7.6.10",
+    "drizzle-kit": "0.20.17",
     "yaml": "2.4.1"
   }
 }
