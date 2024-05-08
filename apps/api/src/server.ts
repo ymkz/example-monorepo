@@ -1,9 +1,9 @@
 import { serve } from "@hono/node-server"
 import { showRoutes } from "hono/dev"
 import { app } from "~/presenter"
-import { writeDocument } from "~/presenter/openapi"
 import { env } from "~/utils/env"
 import { logger } from "~/utils/log"
+import { writeDocument } from "~/utils/openapi"
 
 writeDocument(app)
 showRoutes(app)

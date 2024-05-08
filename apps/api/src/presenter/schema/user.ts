@@ -12,15 +12,15 @@ export const UserSchema = z
 		}),
 		createdAt: z.string().openapi({
 			description: "作成日時（ISO8601）",
-			example: "2024-04-01T01:23:45Z",
+			example: "2024-04-01T01:23:45+09:00",
 		}),
 		updatedAt: z.string().optional().openapi({
 			description: "更新日時（ISO8601）（更新されるたびに更新日時が入る）",
-			example: "2024-04-01T01:23:45Z",
+			example: "2024-04-01T01:23:45+09:00",
 		}),
 		deletedAt: z.string().optional().openapi({
 			description: "削除日時（ISO8601）（論理削除されたら削除日時が入る）",
-			example: "2024-04-01T01:23:45Z",
+			example: "2024-04-01T01:23:45+09:00",
 		}),
 	})
 	.openapi("User")

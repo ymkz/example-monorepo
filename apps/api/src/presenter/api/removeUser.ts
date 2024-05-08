@@ -1,7 +1,7 @@
 import type { RouteHandler } from "@hono/zod-openapi"
 import { createRoute } from "@hono/zod-openapi"
-import { ProblemDetailSchema } from "~/domain/schema/promlem-details"
-import { UserSchema } from "~/domain/schema/user"
+import { ProblemDetailSchema } from "~/presenter/schema/promlem-details"
+import { UserSchema } from "~/presenter/schema/user"
 import { logger } from "~/utils/log"
 
 export const removeUserRoute = createRoute({
@@ -11,9 +11,7 @@ export const removeUserRoute = createRoute({
 	description: "指定したIdのUserを削除",
 	tags: ["user"],
 	request: {
-		params: UserSchema.pick({
-			id: true,
-		}),
+		params: UserSchema.pick({ id: true }),
 	},
 	responses: {
 		204: {
@@ -43,6 +41,5 @@ export const removeUserHandler: RouteHandler<typeof removeUserRoute> = async (
 	await usecase.user.remove(param.id)
 	logger.info("removeUserHandler")
 
-	// TODO: usecaseから取得したものをレスポンスする
 	return ctx.body(null, 204)
 }

@@ -1,7 +1,8 @@
 import type { RouteHandler } from "@hono/zod-openapi"
 import { createRoute } from "@hono/zod-openapi"
-import { ProblemDetailSchema } from "~/domain/schema/promlem-details"
-import { UserSchema } from "~/domain/schema/user"
+import { HTTPException } from "hono/http-exception"
+import { ProblemDetailSchema } from "~/presenter/schema/promlem-details"
+import { UserSchema } from "~/presenter/schema/user"
 import { logger } from "~/utils/log"
 
 export const getUserByIdRoute = createRoute({
@@ -41,8 +42,9 @@ export const getUserByIdHandler: RouteHandler<typeof getUserByIdRoute> = async (
 	const param = ctx.req.valid("param")
 	const usecase = ctx.get("usecase")
 
-	const user = await usecase.user.find(param.id)
-	logger.info({ user }, "getUserByIdHandler")
+	const user = await usecase.user.find(param.id).catch((err) => {
+		throw new HTTPException(404, { cause: err })
+	})
 
 	// TODO: usecaseから取得したものをレスポンスする
 	return ctx.json({
