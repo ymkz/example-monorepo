@@ -23,6 +23,7 @@
         "properties": {
           "id": {
             "type": "integer",
+            "nullable": true,
             "description": "ユーザーID",
             "example": 1
           },
@@ -35,17 +36,17 @@
           },
           "createdAt": {
             "type": "string",
-            "description": "作成日時（ISO 8601）",
+            "description": "作成日時（ISO8601）",
             "example": "2024-04-01T01:23:45Z"
           },
           "updatedAt": {
             "type": "string",
-            "description": "更新日時（ISO 8601）（更新されるたびに更新日時が入る）",
+            "description": "更新日時（ISO8601）（更新されるたびに更新日時が入る）",
             "example": "2024-04-01T01:23:45Z"
           },
           "deletedAt": {
             "type": "string",
-            "description": "削除日時（ISO 8601）（論理削除されたら削除日時が入る）",
+            "description": "削除日時（ISO8601）（論理削除されたら削除日時が入る）",
             "example": "2024-04-01T01:23:45Z"
           }
         },
@@ -173,26 +174,10 @@
                     "maxLength": 24,
                     "description": "名前",
                     "example": "johndoe"
-                  },
-                  "createdAt": {
-                    "type": "string",
-                    "description": "作成日時（ISO 8601）",
-                    "example": "2024-04-01T01:23:45Z"
-                  },
-                  "updatedAt": {
-                    "type": "string",
-                    "description": "更新日時（ISO 8601）（更新されるたびに更新日時が入る）",
-                    "example": "2024-04-01T01:23:45Z"
-                  },
-                  "deletedAt": {
-                    "type": "string",
-                    "description": "削除日時（ISO 8601）（論理削除されたら削除日時が入る）",
-                    "example": "2024-04-01T01:23:45Z"
                   }
                 },
                 "required": [
-                  "name",
-                  "createdAt"
+                  "name"
                 ]
               }
             }
@@ -234,7 +219,7 @@
     },
     "/users/:id": {
       "get": {
-        "operationId": "getUserByUserId",
+        "operationId": "getUserById",
         "description": "指定したIdのUserを取得",
         "tags": [
           "user"
@@ -243,10 +228,11 @@
           {
             "schema": {
               "type": "integer",
+              "nullable": true,
               "description": "ユーザーID",
               "example": 1
             },
-            "required": true,
+            "required": false,
             "name": "id",
             "in": "path"
           }
@@ -304,10 +290,11 @@
           {
             "schema": {
               "type": "integer",
+              "nullable": true,
               "description": "ユーザーID",
               "example": 1
             },
-            "required": true,
+            "required": false,
             "name": "id",
             "in": "path"
           }
@@ -324,26 +311,10 @@
                     "maxLength": 24,
                     "description": "名前",
                     "example": "johndoe"
-                  },
-                  "createdAt": {
-                    "type": "string",
-                    "description": "作成日時（ISO 8601）",
-                    "example": "2024-04-01T01:23:45Z"
-                  },
-                  "updatedAt": {
-                    "type": "string",
-                    "description": "更新日時（ISO 8601）（更新されるたびに更新日時が入る）",
-                    "example": "2024-04-01T01:23:45Z"
-                  },
-                  "deletedAt": {
-                    "type": "string",
-                    "description": "削除日時（ISO 8601）（論理削除されたら削除日時が入る）",
-                    "example": "2024-04-01T01:23:45Z"
                   }
                 },
                 "required": [
-                  "name",
-                  "createdAt"
+                  "name"
                 ]
               }
             }
@@ -402,10 +373,11 @@
           {
             "schema": {
               "type": "integer",
+              "nullable": true,
               "description": "ユーザーID",
               "example": 1
             },
-            "required": true,
+            "required": false,
             "name": "id",
             "in": "path"
           }

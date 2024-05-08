@@ -1,24 +1,24 @@
 {
-  "name": "example-monorepo",
-  "version": "1.0.0",
-  "private": true,
-  "packageManager": "pnpm@9.0.6+sha256.0624e30eff866cdeb363b15061bdb7fd9425b17bc1bb42c22f5f4efdea21f6b3",
-  "engines": {
-    "node": "20.12.2"
-  },
-  "scripts": {
-    "dev": "turbo run dev",
-    "build": "turbo run build",
-    "typecheck": "turbo run typecheck",
-    "lint": "biome check apps",
-    "lint:fix": "biome check apps --apply"
-  },
-  "devDependencies": {
-    "@biomejs/biome": "1.7.2",
-    "@types/node": "20.12.8",
-    "tsup": "8.0.2",
-    "turbo": "1.13.3",
-    "typescript": "5.4.5",
-    "vitest": "1.5.3"
-  }
+	"name": "example-monorepo",
+	"version": "1.0.0",
+	"private": true,
+	"packageManager": "pnpm@9.1.0",
+	"engines": {
+		"node": "20.12.2"
+	},
+	"scripts": {
+		"dev": "turbo run dev",
+		"build": "turbo run build",
+		"typecheck": "turbo run typecheck",
+		"lint": "biome check apps",
+		"lint:fix": "biome check apps --apply"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "1.7.3",
+		"@types/node": "20.12.11",
+		"tsup": "8.0.2",
+		"turbo": "1.13.3",
+		"typescript": "5.4.5",
+		"vitest": "1.6.0"
+	}
 }

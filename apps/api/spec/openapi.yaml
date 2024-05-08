@@ -15,6 +15,7 @@ components:
       properties:
         id:
           type: integer
+          nullable: true
           description: ユーザーID
           example: 1
         name:
@@ -25,15 +26,15 @@ components:
           example: johndoe
         createdAt:
           type: string
-          description: 作成日時（ISO 8601）
+          description: 作成日時（ISO8601）
           example: 2024-04-01T01:23:45Z
         updatedAt:
           type: string
-          description: 更新日時（ISO 8601）（更新されるたびに更新日時が入る）
+          description: 更新日時（ISO8601）（更新されるたびに更新日時が入る）
           example: 2024-04-01T01:23:45Z
         deletedAt:
           type: string
-          description: 削除日時（ISO 8601）（論理削除されたら削除日時が入る）
+          description: 削除日時（ISO8601）（論理削除されたら削除日時が入る）
           example: 2024-04-01T01:23:45Z
       required:
         - id
@@ -124,21 +125,8 @@ paths:
                   maxLength: 24
                   description: 名前
                   example: johndoe
-                createdAt:
-                  type: string
-                  description: 作成日時（ISO 8601）
-                  example: 2024-04-01T01:23:45Z
-                updatedAt:
-                  type: string
-                  description: 更新日時（ISO 8601）（更新されるたびに更新日時が入る）
-                  example: 2024-04-01T01:23:45Z
-                deletedAt:
-                  type: string
-                  description: 削除日時（ISO 8601）（論理削除されたら削除日時が入る）
-                  example: 2024-04-01T01:23:45Z
               required:
                 - name
-                - createdAt
       responses:
         "200":
           description: 正常応答
@@ -160,16 +148,17 @@ paths:
                 $ref: "#/components/schemas/ProblemDetails"
   /users/:id:
     get:
-      operationId: getUserByUserId
+      operationId: getUserById
       description: 指定したIdのUserを取得
       tags:
         - user
       parameters:
         - schema:
             type: integer
+            nullable: true
             description: ユーザーID
             example: 1
-          required: true
+          required: false
           name: id
           in: path
       responses:
@@ -205,9 +194,10 @@ paths:
       parameters:
         - schema:
             type: integer
+            nullable: true
             description: ユーザーID
             example: 1
-          required: true
+          required: false
           name: id
           in: path
       requestBody:
@@ -222,21 +212,8 @@ paths:
                   maxLength: 24
                   description: 名前
                   example: johndoe
-                createdAt:
-                  type: string
-                  description: 作成日時（ISO 8601）
-                  example: 2024-04-01T01:23:45Z
-                updatedAt:
-                  type: string
-                  description: 更新日時（ISO 8601）（更新されるたびに更新日時が入る）
-                  example: 2024-04-01T01:23:45Z
-                deletedAt:
-                  type: string
-                  description: 削除日時（ISO 8601）（論理削除されたら削除日時が入る）
-                  example: 2024-04-01T01:23:45Z
               required:
                 - name
-                - createdAt
       responses:
         "200":
           description: 正常応答
@@ -270,9 +247,10 @@ paths:
       parameters:
         - schema:
             type: integer
+            nullable: true
             description: ユーザーID
             example: 1
-          required: true
+          required: false
           name: id
           in: path
       responses:

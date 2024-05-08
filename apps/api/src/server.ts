@@ -1,63 +1,14 @@
-import { writeFileSync } from 'node:fs'
-import { serve } from '@hono/node-server'
-import { serveStatic } from '@hono/node-server/serve-static'
-import { OpenAPIHono } from '@hono/zod-openapi'
-import { showRoutes } from 'hono/dev'
-import { secureHeaders } from 'hono/secure-headers'
-import { register } from 'prom-client'
-import { stringify } from 'yaml'
-import { createUserHandler, createUserRoute } from '~/presenter/handler/createUser'
-import { getUserByIdHandler, getUserByIdRoute } from '~/presenter/handler/getUserById'
-import { listUsersHandler, listUsersRoute } from '~/presenter/handler/listUsers'
-import { removeUserHandler, removeUserRoute } from '~/presenter/handler/removeUser'
-import { updateUserHandler, updateUserRoute } from '~/presenter/handler/updateUser'
-import { errorHandler, notFoundHandler, validationHook } from '~/presenter/hook'
-import { accessLogger } from '~/presenter/middleware/logger'
-import { accessMetrics } from '~/presenter/middleware/metrics'
-import { env } from '~/utils/env'
-import { logger } from '~/utils/log'
+import { serve } from "@hono/node-server"
+import { showRoutes } from "hono/dev"
+import { app } from "~/presenter"
+import { writeDocument } from "~/presenter/openapi"
+import { env } from "~/utils/env"
+import { logger } from "~/utils/log"
 
-const app = new OpenAPIHono({ defaultHook: validationHook })
+writeDocument(app)
+showRoutes(app)
+serve({ fetch: app.fetch, hostname: env.HOSTNAME, port: env.PORT })
 
-app.use(accessLogger())
-app.use(accessMetrics())
-app.use(secureHeaders())
-
-app.notFound(notFoundHandler)
-app.onError(errorHandler)
-
-app.openapi(listUsersRoute, listUsersHandler)
-app.openapi(getUserByIdRoute, getUserByIdHandler)
-app.openapi(createUserRoute, createUserHandler)
-app.openapi(updateUserRoute, updateUserHandler)
-app.openapi(removeUserRoute, removeUserHandler)
-
-app.get('/health', (ctx) => {
-  if (env.HEALTHCHECK === 'UP') {
-    return ctx.text('UP', 200)
-  }
-  return ctx.text('DOWN', 503)
-})
-app.get('/metrics', async (ctx) => {
-  const metrics = await register.metrics()
-  return ctx.text(metrics)
-})
-
-if (env.APP_ENV === 'local') {
-  const document = app.getOpenAPIDocument({
-    openapi: '3.0.3',
-    info: { version: '1.0.0', title: 'API Specification', description: 'TBD' },
-    servers: [{ url: 'http://localhost:5000', description: 'ローカル環境' }],
-    tags: [{ name: 'user' }],
-  })
-  writeFileSync('spec/openapi.json', JSON.stringify(document, null, 2))
-  writeFileSync('spec/openapi.yaml', stringify(document))
-  app.use('/spec/*', serveStatic())
-}
-
-serve({ fetch: app.fetch, hostname: '0.0.0.0', port: env.PORT }, () => {
-  showRoutes(app)
-  logger.info(
-    `ready on http://localhost:${env.PORT} NODE_ENV=${env.NODE_ENV} APP_ENV=${env.APP_ENV}`,
-  )
-})
+logger.info(
+	`ready on http://${env.HOSTNAME}:${env.PORT} NODE_ENV=${env.NODE_ENV} APP_ENV=${env.APP_ENV}`,
+)
