@@ -27,7 +27,7 @@
 	},
 	"devDependencies": {
 		"@types/better-sqlite3": "7.6.10",
-		"drizzle-kit": "0.20.18",
+		"drizzle-kit": "0.21.0",
 		"yaml": "2.4.2"
 	}
 }
