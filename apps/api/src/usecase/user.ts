@@ -1,4 +1,4 @@
-import { userRepository } from "~/gateway/db/user"
+import { userRepository } from '~/gateway/db/user'
 
 export const userUsecase = {
 	search: async (limit = 10, offset = 0) => {

@@ -1,9 +1,9 @@
-import type { z } from "@hono/zod-openapi"
-import { eq } from "drizzle-orm"
-import { isNotNull } from "drizzle-orm"
-import { createSelectSchema } from "drizzle-zod"
-import { db } from "~/gateway/db/factory/instance"
-import { users } from "~/gateway/db/factory/schema"
+import type { z } from '@hono/zod-openapi'
+import { eq } from 'drizzle-orm'
+import { isNotNull } from 'drizzle-orm'
+import { createSelectSchema } from 'drizzle-zod'
+import { db } from '~/gateway/db/factory/instance'
+import { users } from '~/gateway/db/factory/schema'
 
 export const userRepository = {
 	search: async (limit = 10, offset = 0) => {

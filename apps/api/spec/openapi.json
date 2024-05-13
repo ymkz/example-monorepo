@@ -37,17 +37,17 @@
           "createdAt": {
             "type": "string",
             "description": "作成日時（ISO8601）",
-            "example": "2024-04-01T01:23:45Z"
+            "example": "2024-04-01T01:23:45+09:00"
           },
           "updatedAt": {
             "type": "string",
             "description": "更新日時（ISO8601）（更新されるたびに更新日時が入る）",
-            "example": "2024-04-01T01:23:45Z"
+            "example": "2024-04-01T01:23:45+09:00"
           },
           "deletedAt": {
             "type": "string",
             "description": "削除日時（ISO8601）（論理削除されたら削除日時が入る）",
-            "example": "2024-04-01T01:23:45Z"
+            "example": "2024-04-01T01:23:45+09:00"
           }
         },
         "required": [
@@ -85,7 +85,7 @@
           "detail",
           "status"
         ],
-        "description": "Problem Details (RFC 9457)"
+        "description": "Problem Details (RFC9457)"
       }
     },
     "parameters": {}
@@ -303,19 +303,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 24,
-                    "description": "名前",
-                    "example": "johndoe"
-                  }
-                },
-                "required": [
-                  "name"
-                ]
+                "$ref": "#/components/schemas/User"
               }
             }
           }

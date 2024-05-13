@@ -1,11 +1,11 @@
-import { Button } from "@mantine/core"
-import type { GetServerSideProps } from "next"
-import { Layout } from "../components/layout"
-import { NextHead } from "../components/next"
-import { incrementErrorCounter } from "../utils/metrics"
+import { Button } from '@mantine/core'
+import type { GetServerSideProps } from 'next'
+import { Layout } from '../components/layout'
+import { NextHead } from '../components/next'
+import { incrementErrorCounter } from '../utils/metrics'
 
 export const getServerSideProps: GetServerSideProps = async () => {
-	incrementErrorCounter("other")
+	incrementErrorCounter('other')
 	return { props: {} }
 }
 

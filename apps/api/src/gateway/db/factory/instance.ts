@@ -1,13 +1,13 @@
-import BetterSqlite3 from "better-sqlite3"
-import { drizzle } from "drizzle-orm/better-sqlite3"
-import type { Logger } from "drizzle-orm/logger"
-import { schema } from "~/gateway/db/factory/schema"
-import { env } from "~/utils/env"
-import { logger } from "~/utils/log"
+import BetterSqlite3 from 'better-sqlite3'
+import { drizzle } from 'drizzle-orm/better-sqlite3'
+import type { Logger } from 'drizzle-orm/logger'
+import { schema } from '~/gateway/db/factory/schema'
+import { env } from '~/utility/env'
+import { logger } from '~/utility/log'
 
 class DrizzleLogger implements Logger {
 	logQuery(query: string, params: unknown[]): void {
-		logger.info({ query, params }, "sql executed")
+		logger.info({ query, params }, 'sql executed')
 	}
 }
 

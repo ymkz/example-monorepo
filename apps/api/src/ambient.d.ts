@@ -1,7 +1,7 @@
-import {} from "hono"
-import type { userUsecase } from "~/usecase/user"
+import {} from 'hono'
+import type { userUsecase } from '~/usecase/user'
 
-declare module "hono" {
+declare module 'hono' {
 	interface Env {
 		Variables: {
 			usecase: {
