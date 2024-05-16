@@ -3,7 +3,6 @@ import { createRoute } from '@hono/zod-openapi'
 import { HTTPException } from 'hono/http-exception'
 import { ProblemDetailSchema } from '~/presenter/schema/promlem-details'
 import { UserSchema } from '~/presenter/schema/user'
-import { logger } from '~/utility/log'
 
 export const getUserByIdRoute = createRoute({
 	method: 'get',
@@ -32,6 +31,10 @@ export const getUserByIdRoute = createRoute({
 		500: {
 			description: 'エラー応答',
 			content: { 'application/json': { schema: ProblemDetailSchema } },
+		},
+		// FIXME: https://github.com/honojs/middleware/issues/527 のため一時的に回避
+		999: {
+			description: 'WORKAROUND',
 		},
 	},
 })

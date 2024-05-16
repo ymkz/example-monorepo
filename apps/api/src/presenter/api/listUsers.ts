@@ -36,6 +36,10 @@ export const listUsersRoute = createRoute({
 			description: 'エラー応答',
 			content: { 'application/json': { schema: ProblemDetailSchema } },
 		},
+		// FIXME: https://github.com/honojs/middleware/issues/527 のため一時的に回避
+		999: {
+			description: 'WORKAROUND',
+		},
 	},
 })
 
