@@ -1,8 +1,8 @@
 import type { RouteHandler } from '@hono/zod-openapi'
 import { createRoute } from '@hono/zod-openapi'
+import { logger } from '~/helper/log'
 import { ProblemDetailSchema } from '~/presenter/schema/promlem-details'
 import { UserSchema } from '~/presenter/schema/user'
-import { logger } from '~/utility/log'
 
 export const removeUserRoute = createRoute({
 	method: 'delete',
@@ -32,14 +32,14 @@ export const removeUserRoute = createRoute({
 	},
 })
 
-export const removeUserHandler: RouteHandler<typeof removeUserRoute> = async (
-	ctx,
-) => {
+export const removeUserHandler: RouteHandler<typeof removeUserRoute> = async (ctx) => {
 	const param = ctx.req.valid('param')
 	const usecase = ctx.get('usecase')
+	const client = ctx.get('client')
 
-	await usecase.user.remove(param.id)
-	logger.info('removeUserHandler')
+	await usecase.user.delete(client.mysql, {
+		id: param.id,
+	})
 
 	return ctx.body(null, 204)
 }

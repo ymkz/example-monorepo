@@ -23,11 +23,12 @@
         "properties": {
           "id": {
             "type": "integer",
-            "nullable": true,
+            "minimum": 0,
+            "exclusiveMinimum": true,
             "description": "ユーザーID",
             "example": 1
           },
-          "name": {
+          "displayName": {
             "type": "string",
             "minLength": 1,
             "maxLength": 24,
@@ -52,7 +53,7 @@
         },
         "required": [
           "id",
-          "name",
+          "displayName",
           "createdAt"
         ]
       },
@@ -101,8 +102,7 @@
         "parameters": [
           {
             "schema": {
-              "type": "number",
-              "nullable": true,
+              "type": "string",
               "description": "検索数上限"
             },
             "required": false,
@@ -111,8 +111,7 @@
           },
           {
             "schema": {
-              "type": "number",
-              "nullable": true,
+              "type": "string",
               "description": "ページネーションのオフセット"
             },
             "required": false,
@@ -153,6 +152,9 @@
                 }
               }
             }
+          },
+          "999": {
+            "description": "WORKAROUND"
           }
         }
       },
@@ -168,7 +170,7 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "name": {
+                  "displayName": {
                     "type": "string",
                     "minLength": 1,
                     "maxLength": 24,
@@ -177,7 +179,7 @@
                   }
                 },
                 "required": [
-                  "name"
+                  "displayName"
                 ]
               }
             }
@@ -213,6 +215,9 @@
                 }
               }
             }
+          },
+          "999": {
+            "description": "WORKAROUND"
           }
         }
       }
@@ -228,11 +233,12 @@
           {
             "schema": {
               "type": "integer",
-              "nullable": true,
+              "minimum": 0,
+              "exclusiveMinimum": true,
               "description": "ユーザーID",
               "example": 1
             },
-            "required": false,
+            "required": true,
             "name": "id",
             "in": "path"
           }
@@ -277,6 +283,9 @@
                 }
               }
             }
+          },
+          "999": {
+            "description": "WORKAROUND"
           }
         }
       },
@@ -290,11 +299,12 @@
           {
             "schema": {
               "type": "integer",
-              "nullable": true,
+              "minimum": 0,
+              "exclusiveMinimum": true,
               "description": "ユーザーID",
               "example": 1
             },
-            "required": false,
+            "required": true,
             "name": "id",
             "in": "path"
           }
@@ -348,6 +358,9 @@
                 }
               }
             }
+          },
+          "999": {
+            "description": "WORKAROUND"
           }
         }
       },
@@ -361,11 +374,12 @@
           {
             "schema": {
               "type": "integer",
-              "nullable": true,
+              "minimum": 0,
+              "exclusiveMinimum": true,
               "description": "ユーザーID",
               "example": 1
             },
-            "required": false,
+            "required": true,
             "name": "id",
             "in": "path"
           }

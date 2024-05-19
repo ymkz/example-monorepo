@@ -1,8 +1,8 @@
 import type { RouteHandler } from '@hono/zod-openapi'
 import { createRoute } from '@hono/zod-openapi'
+import { logger } from '~/helper/log'
 import { ProblemDetailSchema } from '~/presenter/schema/promlem-details'
 import { UserSchema } from '~/presenter/schema/user'
-import { logger } from '~/utility/log'
 
 export const createUserRoute = createRoute({
 	method: 'post',
@@ -44,15 +44,14 @@ export const createUserRoute = createRoute({
 	},
 })
 
-export const createUserHandler: RouteHandler<typeof createUserRoute> = async (
-	ctx,
-) => {
+export const createUserHandler: RouteHandler<typeof createUserRoute> = async (ctx) => {
 	const body = ctx.req.valid('json')
 	const usecase = ctx.get('usecase')
+	const client = ctx.get('client')
 
-	const user = await usecase.user.create(body.name)
-	logger.info({ user }, 'createUserHandler')
+	const user = await usecase.user.create(client.mysql, {
+		displayName: body.displayName,
+	})
 
-	// TODO: usecaseから取得したものをレスポンスする
-	return ctx.json({ id: 1, name: 'johndoe', createdAt: '2024-04-01T01:23:45Z' })
+	return ctx.json(user)
 }

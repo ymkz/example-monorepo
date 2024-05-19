@@ -3,7 +3,6 @@ import { z } from '@hono/zod-openapi'
 import { createRoute } from '@hono/zod-openapi'
 import { ProblemDetailSchema } from '~/presenter/schema/promlem-details'
 import { UserSchema } from '~/presenter/schema/user'
-import { logger } from '~/utility/log'
 
 export const listUsersRoute = createRoute({
 	method: 'get',
@@ -13,14 +12,8 @@ export const listUsersRoute = createRoute({
 	tags: ['user'],
 	request: {
 		query: z.object({
-			limit: z.coerce
-				.number()
-				.optional()
-				.openapi({ description: '検索数上限' }),
-			offset: z.coerce
-				.number()
-				.optional()
-				.openapi({ description: 'ページネーションのオフセット' }),
+			limit: z.string().optional().openapi({ description: '検索数上限' }),
+			offset: z.string().optional().openapi({ description: 'ページネーションのオフセット' }),
 		}),
 	},
 	responses: {
@@ -43,15 +36,14 @@ export const listUsersRoute = createRoute({
 	},
 })
 
-export const listUsersHandler: RouteHandler<typeof listUsersRoute> = async (
-	ctx,
-) => {
+export const listUsersHandler: RouteHandler<typeof listUsersRoute> = async (ctx) => {
 	const query = ctx.req.valid('query')
 	const usecase = ctx.get('usecase')
+	const client = ctx.get('client')
 
-	const users = await usecase.user.search(query.limit, query.offset)
-	logger.info({ users }, 'listUsersHandler')
+	// FIXME: sqlcでLIMIT句とOFFSET句をパラメータにするとstring型を要求されるが、実際にstringを渡すとLIMIT '1'のようなクエリが発行され、これはSyntaxErrorとなる
 
-	// TODO: usecaseから取得したものをレスポンスする
-	return ctx.json([])
+	const users = await usecase.user.search(client.mysql)
+
+	return ctx.json(users)
 }

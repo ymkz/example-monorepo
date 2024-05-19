@@ -12,9 +12,14 @@ export const env = createEnv({
 		// configs
 		NODE_ENV: z.enum(['production', 'development', 'test']),
 		APP_ENV: z.enum(['local', 'dev', 'stg', 'prod', 'test']),
-		DATABASE_URL: z.string(),
+		MYSQL_HOST: z.string(),
+		MYSQL_USER: z.string(),
+		MYSQL_DATABASE: z.string(),
 
 		// feature flags
 		HEALTHCHECK: z.enum(['UP', 'DOWN']),
+
+		// secrets
+		MYSQL_PASSWORD: z.string(),
 	},
 })

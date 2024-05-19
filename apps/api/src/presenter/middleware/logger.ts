@@ -1,7 +1,7 @@
 import { getRandomValues } from 'node:crypto'
 import { createMiddleware } from 'hono/factory'
-import { logger } from '~/utility/log'
-import { context } from '~/utility/log/context'
+import { logger } from '~/helper/log'
+import { context } from '~/helper/log/context'
 
 const duration = (start: number) => {
 	const delta = performance.now() - start
@@ -27,10 +27,7 @@ export const accessLogger = () => {
 		await next()
 
 		const responseInfo = { status: ctx.res.status, durationMs: duration(start) }
-		logger.info(
-			{ access: { ...requestInfo, ...responseInfo } },
-			'request completed',
-		)
+		logger.info({ access: { ...requestInfo, ...responseInfo } }, 'request completed')
 	})
 }
 

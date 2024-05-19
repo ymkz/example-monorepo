@@ -39,20 +39,14 @@ export const getUserByIdRoute = createRoute({
 	},
 })
 
-export const getUserByIdHandler: RouteHandler<typeof getUserByIdRoute> = async (
-	ctx,
-) => {
+export const getUserByIdHandler: RouteHandler<typeof getUserByIdRoute> = async (ctx) => {
 	const param = ctx.req.valid('param')
 	const usecase = ctx.get('usecase')
+	const client = ctx.get('client')
 
-	const user = await usecase.user.find(param.id).catch((err) => {
-		throw new HTTPException(404, { cause: err })
-	})
-
-	// TODO: usecaseから取得したものをレスポンスする
-	return ctx.json({
+	const user = await usecase.user.find(client.mysql, {
 		id: param.id,
-		name: 'john',
-		createdAt: '2024-04-01T01:23:45Z', // TODO: JSTにしたい
 	})
+
+	return ctx.json(user)
 }

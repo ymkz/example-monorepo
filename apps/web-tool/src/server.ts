@@ -45,9 +45,7 @@ nextServer.prepare().then(() => {
 	metrics.get('/metrics', metricsMiddleware.metricsMiddleware)
 
 	app.listen(appPort, () => {
-		logger.info(
-			`app ready on http://${hostname}:${appPort} NODE_ENV=${env.NODE_ENV} APP_ENV=${env.APP_ENV}`,
-		)
+		logger.info(`app ready on http://${hostname}:${appPort} NODE_ENV=${env.NODE_ENV} APP_ENV=${env.APP_ENV}`)
 	})
 
 	metrics.listen(metricsPort, () => {

@@ -2,11 +2,11 @@ import { z } from '@hono/zod-openapi'
 
 export const UserSchema = z
 	.object({
-		id: z.coerce.number().int().openapi({
+		id: z.coerce.number().int().positive().openapi({
 			description: 'ユーザーID',
 			example: 1,
 		}),
-		name: z.string().min(1).max(24).openapi({
+		displayName: z.string().min(1).max(24).openapi({
 			description: '名前',
 			example: 'johndoe',
 		}),
@@ -24,3 +24,5 @@ export const UserSchema = z
 		}),
 	})
 	.openapi('User')
+
+export type User = z.infer<typeof UserSchema>
