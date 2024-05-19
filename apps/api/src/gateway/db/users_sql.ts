@@ -5,8 +5,7 @@ type Client = mysql.Connection | mysql.Pool
 
 export const listUsersQuery = `-- name: ListUsers :many
 SELECT id, display_name, created_at, updated_at, deleted_at
-FROM users
-LIMIT 0 OFFSET 0`
+FROM users`
 
 export interface ListUsersRow {
 	id: number
