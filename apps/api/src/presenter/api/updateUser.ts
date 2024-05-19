@@ -14,7 +14,12 @@ export const updateUserRoute = createRoute({
 		body: {
 			content: {
 				'application/json': {
-					schema: UserSchema,
+					schema: UserSchema.omit({
+						id: true,
+						createdAt: true,
+						updatedAt: true,
+						deletedAt: true,
+					}),
 				},
 			},
 		},

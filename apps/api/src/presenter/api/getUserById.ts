@@ -10,9 +10,7 @@ export const getUserByIdRoute = createRoute({
 	description: '指定したIdのUserを取得',
 	tags: ['user'],
 	request: {
-		params: UserSchema.pick({
-			id: true,
-		}),
+		params: UserSchema.pick({ id: true }),
 	},
 	responses: {
 		200: {

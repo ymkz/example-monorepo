@@ -313,7 +313,19 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/User"
+                "type": "object",
+                "properties": {
+                  "displayName": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 24,
+                    "description": "名前",
+                    "example": "johndoe"
+                  }
+                },
+                "required": [
+                  "displayName"
+                ]
               }
             }
           }
