@@ -9,13 +9,16 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
+    "test": "turbo run test",
     "typecheck": "turbo run typecheck",
     "lint": "biome check apps",
     "lint:fix": "biome check apps --apply"
   },
   "devDependencies": {
     "@biomejs/biome": "1.7.3",
+    "@testcontainers/mysql": "10.9.0",
     "@types/node": "20.12.12",
+    "testcontainers": "10.9.0",
     "tsup": "8.0.2",
     "turbo": "1.13.3",
     "typescript": "5.4.5",

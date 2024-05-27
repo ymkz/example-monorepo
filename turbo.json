@@ -9,6 +9,7 @@
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "build/**", "dist/**"]
     },
+    "test": {},
     "typecheck": {}
   }
 }
