@@ -4,7 +4,7 @@
   "private": true,
   "packageManager": "pnpm@9.1.4",
   "engines": {
-    "node": "22.2.0"
+    "node": "22.3.0"
   },
   "scripts": {
     "dev": "turbo run dev",
