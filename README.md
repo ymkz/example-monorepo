@@ -2,5 +2,5 @@
 
 ## Apps
 
-- [api](apps/api)
-- [web-tool](apps/web-tool)
+* [api](apps/api)
+* [web-tool](apps/web-tool)

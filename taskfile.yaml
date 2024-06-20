@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 tasks:
   init:
@@ -15,7 +15,7 @@ tasks:
       - find . -name 'tsconfig.tsbuildinfo' -type f -prune -exec rm -rf '{}' +
   up:
     cmds:
-      - docker compose up -d
+      - docker compose up -d --wait
   down:
     cmds:
       - docker compose down
