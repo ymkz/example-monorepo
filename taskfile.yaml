@@ -15,13 +15,13 @@ tasks:
       - find . -name 'tsconfig.tsbuildinfo' -type f -prune -exec rm -rf '{}' +
   up:
     cmds:
-      - docker compose up -d --wait
+      - docker compose up -d --wait --wait-timeout=60
   down:
     cmds:
       - docker compose down
   db:
     cmds:
-      - docker compose exec db mysql -u user -p local
+      - docker compose exec db mysql local -u user -p
   gen:
     dir: apps/api
     cmds:
