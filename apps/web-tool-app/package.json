@@ -1,0 +1,32 @@
+{
+  "name": "@app/web-tool-app",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbo --port=2000",
+    "build": "next build",
+    "start": "next start",
+    "test": "echo no test yet",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@emotion/cache": "11.11.0",
+    "@emotion/react": "11.11.4",
+    "@emotion/styled": "11.11.5",
+    "@mui/icons-material": "6.0.0-alpha.11",
+    "@mui/material": "6.0.0-alpha.11",
+    "@mui/material-nextjs": "6.0.0-alpha.11",
+    "@mui/x-data-grid": "7.7.0",
+    "@mui/x-date-pickers": "7.7.1",
+    "dayjs": "1.11.11",
+    "next": "14.2.4",
+    "nuqs": "1.17.4",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.3",
+    "@types/react-dom": "18.3.0"
+  }
+}

@@ -7,6 +7,7 @@
     "dev": "tsup --watch --onSuccess 'node --env-file .env.local dist/server.js'",
     "build": "tsup && next build",
     "start": "node dist/server.js",
+    "test": "echo no test yet",
     "typecheck": "tsc"
   },
   "dependencies": {
