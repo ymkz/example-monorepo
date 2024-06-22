@@ -5,16 +5,15 @@ export const env = createEnv({
 	runtimeEnv: process.env,
 	emptyStringAsUndefined: true,
 	server: {
-		// optional
+		// environments
 		APP_PORT: z.number().int().positive().default(3000),
 		METRICS_PORT: z.number().int().positive().default(3001),
+		LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent']).default('info'),
 
-		// config
+		// configs
 		NODE_ENV: z.enum(['production', 'development', 'test']),
 		APP_ENV: z.enum(['local', 'dev', 'stg', 'prod', 'test']),
-		API_URL: z.string().url(),
-
-		// k8s configmap
 		HEALTHCHECK: z.enum(['UP', 'DOWN']),
+		API_URL: z.string().url(),
 	},
 })

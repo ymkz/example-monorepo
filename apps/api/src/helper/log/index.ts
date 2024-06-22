@@ -4,25 +4,18 @@ import { env } from '~/helper/env'
 import { context } from '~/helper/log/context'
 
 const timestamp = () => {
-	// タイムゾーンはJST
-	// ミリ秒は6桁の精度とする
-	return dayjs().format('YYYY-MM-DDTHH:mm:ss.SSSSSSZ')
+	return dayjs().format('YYYY-MM-DDTHH:mm:ss.SSSZ')
 }
 
 export const logger = pino({
 	enabled: env.NODE_ENV !== 'test',
+	level: env.LOG_LEVEL,
 	timestamp: () => `,"time":"${timestamp()}"`,
 	formatters: {
-		level: (label) => {
-			return { severity: label }
-		},
-		bindings: () => {
-			return {}
-		},
+		level: (label) => ({ severity: label }),
+		bindings: () => ({}),
 	},
-	mixin: () => {
-		return {
-			reqId: context.getStore()?.get('reqId'),
-		}
-	},
+	mixin: () => ({
+		reqId: context.getStore()?.get('reqId'),
+	}),
 })

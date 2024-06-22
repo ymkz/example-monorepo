@@ -3,18 +3,15 @@ import { pino } from 'pino'
 import { env } from '~/utils/env'
 
 const timestamp = () => {
-	return dayjs().toISOString()
+	return dayjs().format('YYYY-MM-DDTHH:mm:ss.SSSZ')
 }
 
 export const logger = pino({
 	enabled: env.NODE_ENV !== 'test',
+	level: env.LOG_LEVEL,
 	timestamp: () => `,"time":"${timestamp()}"`,
 	formatters: {
-		level: (label) => {
-			return { severity: label }
-		},
-		bindings: () => {
-			return {}
-		},
+		level: (label) => ({ severity: label }),
+		bindings: () => ({}),
 	},
 })
