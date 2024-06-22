@@ -1,5 +1,5 @@
 import type { NotFoundHandler } from 'hono'
-import { logger } from '~/helper/log'
+import { logger } from '../../helper/log'
 
 export const notFoundHandler: NotFoundHandler = (ctx) => {
 	logger.warn(

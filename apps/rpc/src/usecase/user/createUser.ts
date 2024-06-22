@@ -1,6 +1,6 @@
 import type { PartialMessage, PlainMessage } from '@bufbuild/protobuf'
-import { logger } from '~/helper/log'
-import type { CreateUserRequest, CreateUserResponse } from '~/presenter/proto/user/v1/service_pb'
+import { logger } from '../../helper/log'
+import type { CreateUserRequest, CreateUserResponse } from '../../presenter/proto/user/v1/service_pb'
 
 export const createUserUsecase = async (
 	req: PlainMessage<CreateUserRequest>,

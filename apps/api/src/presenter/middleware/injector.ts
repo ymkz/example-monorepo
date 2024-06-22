@@ -1,7 +1,7 @@
 import { createMiddleware } from 'hono/factory'
 import { createPool } from 'mysql2/promise'
-import { env } from '~/helper/env'
-import { userUsecase } from '~/usecase/user'
+import { env } from '../../helper/env'
+import { userUsecase } from '../../usecase/user'
 
 export const variableInjector = () => {
 	const pool = createPool({

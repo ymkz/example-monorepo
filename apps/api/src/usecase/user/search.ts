@@ -1,7 +1,7 @@
 import type { Pool } from 'mysql2/promise'
-import { listUsers } from '~/gateway/db/users_sql'
-import { convertFromDate } from '~/helper/dayjs'
-import type { User } from '~/presenter/schema/user'
+import { listUsers } from '../../gateway/db/users_sql'
+import { convertFromDate } from '../../helper/dayjs'
+import type { User } from '../../presenter/schema/user'
 
 export const userSearchUsecase = async (client: Pool): Promise<User[]> => {
 	const users = await listUsers(client)

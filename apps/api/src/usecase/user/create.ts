@@ -1,8 +1,8 @@
 import type { Pool } from 'mysql2/promise'
-import { createUser, getUserByLastInsertId } from '~/gateway/db/users_sql'
-import type { CreateUserArgs } from '~/gateway/db/users_sql'
-import { convertFromDate } from '~/helper/dayjs'
-import type { User } from '~/presenter/schema/user'
+import { createUser, getUserByLastInsertId } from '../../gateway/db/users_sql'
+import type { CreateUserArgs } from '../../gateway/db/users_sql'
+import { convertFromDate } from '../../helper/dayjs'
+import type { User } from '../../presenter/schema/user'
 
 export const userCreateUsecase = async (client: Pool, args: CreateUserArgs): Promise<User> => {
 	await createUser(client, { displayName: args.displayName })

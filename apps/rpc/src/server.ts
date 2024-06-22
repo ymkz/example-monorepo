@@ -1,9 +1,9 @@
 import { fastifyConnectPlugin } from '@connectrpc/connect-fastify'
 import { fastify } from 'fastify'
-import { env } from '~/helper/env'
-import { logger } from '~/helper/log'
-import { routes } from '~/presenter'
-import { healthcheckRoute } from '~/presenter/health'
+import { env } from './helper/env'
+import { logger } from './helper/log'
+import { routes } from './presenter'
+import { healthcheckRoute } from './presenter/health'
 
 const app = fastify({ logger })
 

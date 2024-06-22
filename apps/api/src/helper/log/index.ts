@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
 import { pino } from 'pino'
-import { env } from '~/helper/env'
-import { context } from '~/helper/log/context'
+import { env } from '../../helper/env'
+import { context } from '../../helper/log/context'
 
 const timestamp = () => {
 	return dayjs().format('YYYY-MM-DDTHH:mm:ss.SSSZ')

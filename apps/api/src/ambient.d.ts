@@ -1,6 +1,6 @@
 import {} from 'hono'
 import type { Pool } from 'mysql2/promise'
-import type { userUsecase } from '~/usecase/user'
+import type { userUsecase } from '../../usecase/user'
 
 declare module 'hono' {
 	interface Env {

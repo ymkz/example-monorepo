@@ -13,9 +13,7 @@
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "jsx": "preserve",
-    "baseUrl": ".",
-    "paths": { "~/*": ["./src/*"] }
+    "jsx": "preserve"
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]

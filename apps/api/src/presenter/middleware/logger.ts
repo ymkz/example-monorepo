@@ -1,7 +1,7 @@
 import { getRandomValues } from 'node:crypto'
 import { createMiddleware } from 'hono/factory'
-import { logger } from '~/helper/log'
-import { context } from '~/helper/log/context'
+import { logger } from '../../helper/log'
+import { context } from '../../helper/log/context'
 
 const duration = (start: number) => {
 	const delta = performance.now() - start

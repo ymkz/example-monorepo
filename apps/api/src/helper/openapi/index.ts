@@ -2,7 +2,7 @@ import { writeFileSync } from 'node:fs'
 import { serveStatic } from '@hono/node-server/serve-static'
 import type { OpenAPIHono } from '@hono/zod-openapi'
 import { stringify } from 'yaml'
-import { env } from '~/helper/env'
+import { env } from '../../helper/env'
 
 export function writeDocument(app: OpenAPIHono) {
 	if (env.APP_ENV !== 'local') return

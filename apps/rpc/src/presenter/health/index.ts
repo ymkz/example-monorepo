@@ -1,5 +1,5 @@
 import type { FastifyPluginAsync } from 'fastify'
-import { env } from '~/helper/env'
+import { env } from '../../helper/env'
 
 export const healthcheckRoute: FastifyPluginAsync = async (app) => {
 	app.route({

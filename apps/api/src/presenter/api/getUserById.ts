@@ -1,7 +1,7 @@
 import type { RouteHandler } from '@hono/zod-openapi'
 import { createRoute } from '@hono/zod-openapi'
-import { ProblemDetailSchema } from '~/presenter/schema/promlem-details'
-import { UserSchema } from '~/presenter/schema/user'
+import { ProblemDetailSchema } from '../../presenter/schema/promlem-details'
+import { UserSchema } from '../../presenter/schema/user'
 
 export const getUserByIdRoute = createRoute({
 	method: 'get',

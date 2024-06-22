@@ -1,8 +1,8 @@
 import type { Pool } from 'mysql2/promise'
-import { getUser, updateUserDisplayName } from '~/gateway/db/users_sql'
-import type { UpdateUserDisplayNameArgs } from '~/gateway/db/users_sql'
-import { convertFromDate } from '~/helper/dayjs'
-import type { User } from '~/presenter/schema/user'
+import { getUser, updateUserDisplayName } from '../../gateway/db/users_sql'
+import type { UpdateUserDisplayNameArgs } from '../../gateway/db/users_sql'
+import { convertFromDate } from '../../helper/dayjs'
+import type { User } from '../../presenter/schema/user'
 
 export const userUpdateUsecase = async (client: Pool, args: UpdateUserDisplayNameArgs): Promise<User> => {
 	await updateUserDisplayName(client, { id: args.id, displayName: args.displayName })
