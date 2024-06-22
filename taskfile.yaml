@@ -4,6 +4,7 @@ tasks:
   init:
     cmds:
       - cp apps/api/.env.example apps/api/.env.local
+      - cp apps/rpc/.env.example apps/rpc/.env.local
       - cp apps/web-tool-pages/.env.example apps/web-tool-pages/.env.local
   clean:
     cmds:
@@ -13,6 +14,14 @@ tasks:
       - find . -name 'node_modules' -type d -prune -exec rm -rf '{}' +
       - find . -name 'pnpm-lock.yaml' -type f -prune -exec rm -rf '{}' +
       - find . -name 'tsconfig.tsbuildinfo' -type f -prune -exec rm -rf '{}' +
+
+  update-deps:
+    cmds:
+      - pnpm update --recursive --latest --workspace
+  update-deps-interactive:
+    cmds:
+      - pnpm update --recursive --latest --workspace --interactive
+
   up:
     cmds:
       - docker compose up -d --wait --wait-timeout=60
@@ -22,8 +31,26 @@ tasks:
   db:
     cmds:
       - docker compose exec db mysql local -u user -p
-  gen:
+
+  generate:
+    deps:
+      - generate-sqlc
+      - generate-proto
+  generate-sqlc:
     dir: apps/api
     cmds:
       - sqlc generate
       - pnpm exec biome check src/gateway/db --write
+  generate-proto:
+    dir: apps/rpc
+    cmds:
+      - npx buf generate
+      - npx biome check src/presenter/proto --write
+  lint-proto:
+    dir: apps/rpc
+    cmds:
+      - npx buf lint proto
+  format-proto:
+    dir: apps/rpc
+    cmds:
+      - npx buf format proto --write
