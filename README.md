@@ -3,4 +3,4 @@
 ## Apps
 
 * [api](apps/api)
-* [web-tool](apps/web-tool)
+* [web-tool-pages](apps/web-tool-pages)

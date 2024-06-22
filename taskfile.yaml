@@ -4,7 +4,7 @@ tasks:
   init:
     cmds:
       - cp apps/api/.env.example apps/api/.env.local
-      - cp apps/web-tool/.env.example apps/web-tool/.env.local
+      - cp apps/web-tool-pages/.env.example apps/web-tool-pages/.env.local
   clean:
     cmds:
       - find . -name '.turbo' -type d -prune -exec rm -rf '{}' +

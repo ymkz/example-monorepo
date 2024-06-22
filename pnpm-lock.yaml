@@ -73,7 +73,7 @@ importers:
         specifier: 2.4.5
         version: 2.4.5
 
-  apps/web-tool:
+  apps/web-tool-pages:
     dependencies:
       '@mantine/core':
         specifier: 7.10.2
