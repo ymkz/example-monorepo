@@ -26,4 +26,4 @@ tasks:
     dir: apps/api
     cmds:
       - sqlc generate
-      - pnpm exec biome check src/gateway/db --apply
+      - pnpm exec biome check src/gateway/db --write
