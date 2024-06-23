@@ -19,6 +19,7 @@
     "@bufbuild/buf": "1.33.0",
     "@bufbuild/protoc-gen-es": "1.10.0",
     "@connectrpc/protoc-gen-connect-es": "1.4.0",
+    "@scalar/cli": "0.2.121",
     "@testcontainers/mysql": "10.9.0",
     "@types/node": "20.14.6",
     "testcontainers": "10.9.0",

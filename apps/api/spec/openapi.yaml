@@ -107,8 +107,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ProblemDetails"
-        "999":
-          description: WORKAROUND
     post:
       operationId: createUser
       description: Userを作成
@@ -147,8 +145,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ProblemDetails"
-        "999":
-          description: WORKAROUND
   /users/{id}:
     get:
       operationId: getUserById
@@ -190,8 +186,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ProblemDetails"
-        "999":
-          description: WORKAROUND
     put:
       operationId: updateUser
       description: 指定したIdのUserを更新
@@ -246,8 +240,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ProblemDetails"
-        "999":
-          description: WORKAROUND
     delete:
       operationId: removeUser
       description: 指定したIdのUserを削除

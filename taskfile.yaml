@@ -44,13 +44,27 @@ tasks:
   generate-proto:
     dir: apps/rpc
     cmds:
-      - npx buf generate
-      - npx biome check src/presenter/proto --write
+      - pnpm exec buf generate
+      - pnpm exec biome check src/presenter/proto --write
+  lint-openapi:
+    dir: apps/api
+    cmds:
+      - pnpm exec scalar validate spec/openapi.json
+      - pnpm exec scalar validate spec/openapi.yaml
+  format-openapi:
+    dir: apps/api
+    cmds:
+      - pnpm exec scalar format spec/openapi.json
+      - pnpm exec scalar format spec/openapi.yaml
+  mock-openapi:
+    dir: apps/api
+    cmds:
+      - pnpm exec scalar mock spec/openapi.json
   lint-proto:
     dir: apps/rpc
     cmds:
-      - npx buf lint proto
+      - pnpm exec buf lint proto
   format-proto:
     dir: apps/rpc
     cmds:
-      - npx buf format proto --write
+      - pnpm exec buf format proto --write
