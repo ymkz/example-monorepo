@@ -5,7 +5,7 @@ import { UserSchema } from '../../presenter/schema/user'
 
 export const removeUserRoute = createRoute({
 	method: 'delete',
-	path: '/users/:id',
+	path: '/users/{id}',
 	operationId: 'removeUser',
 	description: '指定したIdのUserを削除',
 	tags: ['user'],

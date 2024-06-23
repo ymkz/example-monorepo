@@ -222,7 +222,7 @@
         }
       }
     },
-    "/users/:id": {
+    "/users/{id}": {
       "get": {
         "operationId": "getUserById",
         "description": "指定したIdのUserを取得",

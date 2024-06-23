@@ -5,7 +5,7 @@ import { UserSchema } from '../../presenter/schema/user'
 
 export const getUserByIdRoute = createRoute({
 	method: 'get',
-	path: '/users/:id',
+	path: '/users/{id}',
 	operationId: 'getUserById',
 	description: '指定したIdのUserを取得',
 	tags: ['user'],

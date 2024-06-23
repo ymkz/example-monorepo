@@ -5,7 +5,7 @@ import { UserSchema } from '../../presenter/schema/user'
 
 export const updateUserRoute = createRoute({
 	method: 'put',
-	path: '/users/:id',
+	path: '/users/{id}',
 	operationId: 'updateUser',
 	description: '指定したIdのUserを更新',
 	tags: ['user'],
