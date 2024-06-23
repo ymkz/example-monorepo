@@ -2,24 +2,11 @@
 <html lang="ja">
   <head>
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>API仕様書</title>
-    <script src="https://unpkg.com/@stoplight/elements/web-components.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://unpkg.com/@stoplight/elements/styles.min.css"
-    />
-    <style>
-      elements-api {
-        display: block;
-        height: 100dvh;
-      }
-    </style>
   </head>
   <body>
-    <elements-api apiDescriptionUrl="openapi.yaml" router="hash" />
+    <script id="api-reference" data-url="openapi.yaml"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@scalar/api-reference"></script>
   </body>
 </html>
