@@ -10,8 +10,11 @@ services:
       - ./db/my.cnf:/etc/mysql/conf.d/my.cnf
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: local
-      MYSQL_USER: user
-      MYSQL_PASSWORD: passw0rd
+      MYSQL_DATABASE: local_db
+      MYSQL_USER: local_user
+      MYSQL_PASSWORD: local_pass
     healthcheck:
-      test: exit 0
+      test: mysqladmin ping -uroot -proot
+      timeout: 5s
+      interval: 5s
+      retries: 10

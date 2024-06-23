@@ -30,7 +30,7 @@ tasks:
       - docker compose down
   db:
     cmds:
-      - docker compose exec db mysql local -u user -p
+      - docker compose exec db mysql local_db -uroot -proot
 
   generate:
     deps:
