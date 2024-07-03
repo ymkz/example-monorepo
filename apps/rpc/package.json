@@ -24,7 +24,7 @@
     "@opentelemetry/sdk-trace-node": "1.25.1",
     "@t3-oss/env-core": "0.10.1",
     "dayjs": "1.11.11",
-    "fastify": "4.28.0",
+    "fastify": "4.28.1",
     "pino": "9.2.0",
     "zod": "3.23.8"
   }
