@@ -24,14 +24,14 @@ importers:
         specifier: 0.2.153
         version: 0.2.153(postcss@8.4.39)(storybook@8.2.4(@babel/preset-env@7.24.8(@babel/core@7.24.9)))(tailwindcss@3.4.6)(typescript@5.5.3)(vitest@2.0.3(@types/node@20.14.11)(sugarss@4.0.1(postcss@8.4.39)))
       '@testcontainers/mysql':
-        specifier: 10.10.3
-        version: 10.10.3
+        specifier: 10.10.4
+        version: 10.10.4
       '@types/node':
         specifier: 20.14.11
         version: 20.14.11
       testcontainers:
-        specifier: 10.10.3
-        version: 10.10.3
+        specifier: 10.10.4
+        version: 10.10.4
       tsup:
         specifier: 8.1.1
         version: 8.1.1(jiti@1.21.6)(postcss@8.4.39)(typescript@5.5.3)(yaml@2.4.5)
@@ -249,8 +249,8 @@ importers:
         specifier: 6.0.1
         version: 6.0.1(jiti@1.21.6)(postcss@8.4.39)(yaml@2.4.5)
       postcss-preset-mantine:
-        specifier: 1.15.0
-        version: 1.15.0(postcss@8.4.39)
+        specifier: 1.16.0
+        version: 1.16.0(postcss@8.4.39)
       postcss-simple-vars:
         specifier: 7.0.1
         version: 7.0.1(postcss@8.4.39)
@@ -2363,8 +2363,8 @@ packages:
     peerDependencies:
       vue: ^2.7.0 || ^3.0.0
 
-  '@testcontainers/mysql@10.10.3':
-    resolution: {integrity: sha512-8mJzCBkl78VNpAlB0tBIzXCI3YgeGWssyPr7LUOH4229KoS1Fs8cdP3G8OOZByuD89YAQNi8EDMUH91G4mTy+w==}
+  '@testcontainers/mysql@10.10.4':
+    resolution: {integrity: sha512-LVKcEpF28qWTk3hVIso4jDlduZV0B57lXYVWUfwChgQ7Li6zPeCSMMFXtbaKlHF3FRv1iq4s1zZbjqoIw+8hkw==}
 
   '@testing-library/dom@10.1.0':
     resolution: {integrity: sha512-wdsYKy5zupPyLCW2Je5DLHSxSfbIp6h80WoHOQc+RPtmPGA52O9x5MJEkv92Sjonpq+poOAtUKhh1kBGAXBrNA==}
@@ -4569,8 +4569,8 @@ packages:
     peerDependencies:
       postcss: ^8.2.14
 
-  postcss-preset-mantine@1.15.0:
-    resolution: {integrity: sha512-OKPs6uoORSXlU/GFH1ZtFaslecHBPwuoSikdL5W3WKJm4ZPAQM0mw9x9m3toa/Mo1JhoBmYMM28i+zEdav5Edg==}
+  postcss-preset-mantine@1.16.0:
+    resolution: {integrity: sha512-KIxo2ysUDY2PaiE/n6iZFwKOxsF7K4t6RvxdtukENHGq/3B70fEty7Ws2FQOH+Yyuic6HWwcE4Mp3WOnolgBIQ==}
     peerDependencies:
       postcss: '>=8.0.0'
 
@@ -5205,8 +5205,8 @@ packages:
     resolution: {integrity: sha512-7jDLIdD2Zp0bDe5r3D2qtkd1QOCacylBuL7oa4udvN6v2pqr4+LcCr67C8DR1zkpaZ8XosF5m1yQSabKAW6f2g==}
     engines: {node: '>=14.16'}
 
-  testcontainers@10.10.3:
-    resolution: {integrity: sha512-QuHKgGbMo+rM+AvrHNzQFAu8/D37Od1sQCW8lNR5+KvGM82mDJndTkpPXiUaFpVIZ99wNQfhZbZwSTBULerUiQ==}
+  testcontainers@10.10.4:
+    resolution: {integrity: sha512-/vAEbFfF0m8oU+LmnRcETxKCQ28t+zC5Mkdi1QfydrR9HCFEsj1M4UrKWwiCbOa1Y2gLUZ3JX6553oxZb6n7zw==}
 
   text-decoder@1.1.1:
     resolution: {integrity: sha512-8zll7REEv4GDD3x4/0pW+ppIxSNs7H1J10IKFZsuOMscumCdM2a+toDGLPA3T+1+fLBql4zbt5z83GEQGGV5VA==}
@@ -8170,9 +8170,9 @@ snapshots:
       '@tanstack/virtual-core': 3.8.3
       vue: 3.4.31(typescript@5.5.3)
 
-  '@testcontainers/mysql@10.10.3':
+  '@testcontainers/mysql@10.10.4':
     dependencies:
-      testcontainers: 10.10.3
+      testcontainers: 10.10.4
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -10698,7 +10698,7 @@ snapshots:
       postcss: 8.4.39
       postcss-selector-parser: 6.1.1
 
-  postcss-preset-mantine@1.15.0(postcss@8.4.39):
+  postcss-preset-mantine@1.16.0(postcss@8.4.39):
     dependencies:
       postcss: 8.4.39
       postcss-mixins: 9.0.4(postcss@8.4.39)
@@ -11513,7 +11513,7 @@ snapshots:
       type-fest: 2.19.0
       unique-string: 3.0.0
 
-  testcontainers@10.10.3:
+  testcontainers@10.10.4:
     dependencies:
       '@balena/dockerignore': 1.0.2
       '@types/dockerode': 3.3.30
