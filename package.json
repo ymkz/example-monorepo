@@ -16,16 +16,16 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
-    "@bufbuild/buf": "1.34.0",
+    "@bufbuild/buf": "1.35.0",
     "@bufbuild/protoc-gen-es": "1.10.0",
     "@connectrpc/protoc-gen-connect-es": "1.4.0",
-    "@scalar/cli": "0.2.153",
+    "@scalar/cli": "0.2.160",
     "@testcontainers/mysql": "10.10.4",
-    "@types/node": "20.14.11",
+    "@types/node": "20.14.12",
     "testcontainers": "10.10.4",
-    "tsup": "8.1.1",
-    "turbo": "2.0.7",
-    "typescript": "5.5.3",
-    "vitest": "2.0.3"
+    "tsup": "8.2.3",
+    "turbo": "2.0.9",
+    "typescript": "5.5.4",
+    "vitest": "2.0.4"
   }
 }
