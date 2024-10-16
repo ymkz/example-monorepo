@@ -12,9 +12,9 @@
   },
   "dependencies": {
     "@bufbuild/protobuf": "1.10.0",
-    "@connectrpc/connect": "1.6.0",
-    "@connectrpc/connect-fastify": "1.6.0",
-    "@connectrpc/connect-node": "1.6.0",
+    "@connectrpc/connect": "1.6.1",
+    "@connectrpc/connect-fastify": "1.6.1",
+    "@connectrpc/connect-node": "1.6.1",
     "@opentelemetry/api": "1.9.0",
     "@opentelemetry/instrumentation-connect": "0.39.0",
     "@opentelemetry/instrumentation-fastify": "0.40.0",
@@ -25,7 +25,7 @@
     "@t3-oss/env-core": "0.11.1",
     "dayjs": "1.11.13",
     "fastify": "4.28.1",
-    "pino": "9.4.0",
+    "pino": "9.5.0",
     "zod": "3.23.8"
   }
 }
