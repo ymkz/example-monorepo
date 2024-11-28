@@ -11,10 +11,10 @@
     "typecheck": "tsc"
   },
   "dependencies": {
-    "@mantine/core": "7.14.1",
-    "@mantine/dates": "7.14.1",
-    "@mantine/form": "7.14.1",
-    "@mantine/hooks": "7.14.1",
+    "@mantine/core": "7.14.3",
+    "@mantine/dates": "7.14.3",
+    "@mantine/form": "7.14.3",
+    "@mantine/hooks": "7.14.3",
     "@t3-oss/env-core": "0.11.1",
     "dayjs": "1.11.13",
     "express": "4.21.1",
