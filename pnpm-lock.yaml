@@ -24,14 +24,14 @@ importers:
         specifier: 0.2.255
         version: 0.2.255(@hyperjump/browser@1.1.6)(tailwindcss@3.4.15)(typescript@5.7.2)
       '@testcontainers/mysql':
-        specifier: 10.15.0
-        version: 10.15.0
+        specifier: 10.16.0
+        version: 10.16.0
       '@types/node':
         specifier: 20.17.9
         version: 20.17.9
       testcontainers:
-        specifier: 10.15.0
-        version: 10.15.0
+        specifier: 10.16.0
+        version: 10.16.0
       tsup:
         specifier: 8.3.5
         version: 8.3.5(jiti@1.21.6)(postcss@8.4.49)(typescript@5.7.2)(yaml@2.6.1)
@@ -1771,8 +1771,8 @@ packages:
     peerDependencies:
       vue: ^2.7.0 || ^3.0.0
 
-  '@testcontainers/mysql@10.15.0':
-    resolution: {integrity: sha512-YxAPlsigvjq0EPKbQuaPyQVgEa8nNIw2TPbtq7MyZh1eG3ePHKvpqEmDAu7GsfgJqYZU3YvK5b8Ty9Wo0qJYNA==}
+  '@testcontainers/mysql@10.16.0':
+    resolution: {integrity: sha512-GyxWqKfpY13lUrTEBmkKrAXyN7RZ//ntMdY/5Eyo/SukDM9LNGu3j5aNuDTGlYr4AEMJuzJ8CHxqUDAFGnCB/w==}
 
   '@types/body-parser@1.19.5':
     resolution: {integrity: sha512-fB3Zu92ucau0iQ0JMCFQE7b/dv8Ot07NI3KaZIkIUNXq82k4eBAqUaneXfleGY9JWskeS9y+u0nXMyspcuQrCg==}
@@ -3963,8 +3963,8 @@ packages:
   tdigest@0.1.2:
     resolution: {integrity: sha512-+G0LLgjjo9BZX2MfdvPfH+MKLCrxlXSYec5DaPYP1fe6Iyhf0/fSmJ0bFiZ1F8BT6cGXl2LpltQptzjXKWEkKA==}
 
-  testcontainers@10.15.0:
-    resolution: {integrity: sha512-fQbWIdXverYhOVS7WJk3egII1b4OtUl3C9mXIJk7Q95o5HeY/PRbAif5Gxi8tzck7Lmer0rMbq2jSbSbMyYm8Q==}
+  testcontainers@10.16.0:
+    resolution: {integrity: sha512-oxPLuOtrRWS11A+Yn0+zXB7GkmNarflWqmy6CQJk8KJ75LZs2/zlUXDpizTbPpCGtk4kE2EQYwFZjrE967F8Wg==}
 
   text-decoder@1.2.1:
     resolution: {integrity: sha512-x9v3H/lTKIJKQQe7RPQkLfKAnc9lUTkWDypIQgTzPJAq+5/GCDHonmshfvlsNSj58yyshbIJJDLmU15qNERrXQ==}
@@ -6041,9 +6041,9 @@ snapshots:
       '@tanstack/virtual-core': 3.10.9
       vue: 3.5.13(typescript@5.7.2)
 
-  '@testcontainers/mysql@10.15.0':
+  '@testcontainers/mysql@10.16.0':
     dependencies:
-      testcontainers: 10.15.0
+      testcontainers: 10.16.0
     transitivePeerDependencies:
       - supports-color
 
@@ -8640,7 +8640,7 @@ snapshots:
     dependencies:
       bintrees: 1.0.2
 
-  testcontainers@10.15.0:
+  testcontainers@10.16.0:
     dependencies:
       '@balena/dockerignore': 1.0.2
       '@types/dockerode': 3.3.32
