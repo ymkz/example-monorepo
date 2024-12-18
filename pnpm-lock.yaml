@@ -21,8 +21,8 @@ importers:
         specifier: 1.6.1
         version: 1.6.1(@bufbuild/protoc-gen-es@1.10.0(@bufbuild/protobuf@1.10.0))(@connectrpc/connect@1.6.1(@bufbuild/protobuf@1.10.0))
       '@scalar/cli':
-        specifier: 0.2.272
-        version: 0.2.272(@hyperjump/browser@1.1.6)(tailwindcss@3.4.16)(typescript@5.7.2)
+        specifier: 0.2.273
+        version: 0.2.273(@hyperjump/browser@1.1.6)(tailwindcss@3.4.16)(typescript@5.7.2)
       '@testcontainers/mysql':
         specifier: 10.16.0
         version: 10.16.0
@@ -1665,16 +1665,16 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@scalar/api-client@2.2.18':
-    resolution: {integrity: sha512-oTwBhhl1TZyZdLvMVieIk1Gu8YAYQwNfs8wr9w9n4RdFr+4S36BeL/5rzWOv4zzsv0GHANIzZ6dxSFFCqJbWDw==}
+  '@scalar/api-client@2.2.19':
+    resolution: {integrity: sha512-TYXA5OfEmeN+caT6wK6E3FvtKV9qJeOyinEQ76fKX4/roMPsBQprJNM+emYnwKA1l5qcAO32Usr9bBYbaojS8Q==}
     engines: {node: '>=18'}
 
-  '@scalar/api-reference@1.25.89':
-    resolution: {integrity: sha512-DfWeHyDFsrw6guI8ixUxsq5Xz/H7cT7daRjQQwer8A48eyBrpYFCngfAXY7cexzHy5Us2GsWMZo/d2dkJ3kwsA==}
+  '@scalar/api-reference@1.25.90':
+    resolution: {integrity: sha512-x/8ukzKy+UT+AnxTviHeOMB3hz6IIDiEl+7SaRrZ5OuY8CpO7goTkMr9l8nfaUumgPu04wvEvUuMisPQZ6JTqQ==}
     engines: {node: '>=18'}
 
-  '@scalar/cli@0.2.272':
-    resolution: {integrity: sha512-f9ZoV3uQl+pOMucdShkX7BghH/KS+TaDlpIybwHk5HzsKTdUagh/SnzdXyl+MAmMjgw+dYj+uYKH8qUzihxeDA==}
+  '@scalar/cli@0.2.273':
+    resolution: {integrity: sha512-jsqyH5CIiBwY6CBeh8wmOiRFf+cfCLHwBoET2CQb3CEeiw1lUIktKHQLSENjDly0RwskW81z8rqxjq1gnXkfww==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -5743,7 +5743,7 @@ snapshots:
   '@rollup/rollup-win32-x64-msvc@4.28.1':
     optional: true
 
-  '@scalar/api-client@2.2.18(@hyperjump/browser@1.1.6)(tailwindcss@3.4.16)(typescript@5.7.2)':
+  '@scalar/api-client@2.2.19(@hyperjump/browser@1.1.6)(tailwindcss@3.4.16)(typescript@5.7.2)':
     dependencies:
       '@headlessui/tailwindcss': 0.2.1(tailwindcss@3.4.16)
       '@headlessui/vue': 1.7.23(vue@3.5.13(typescript@5.7.2))
@@ -5794,11 +5794,11 @@ snapshots:
       - typescript
       - universal-cookie
 
-  '@scalar/api-reference@1.25.89(@hyperjump/browser@1.1.6)(tailwindcss@3.4.16)(typescript@5.7.2)':
+  '@scalar/api-reference@1.25.90(@hyperjump/browser@1.1.6)(tailwindcss@3.4.16)(typescript@5.7.2)':
     dependencies:
       '@floating-ui/vue': 1.1.5(vue@3.5.13(typescript@5.7.2))
       '@headlessui/vue': 1.7.23(vue@3.5.13(typescript@5.7.2))
-      '@scalar/api-client': 2.2.18(@hyperjump/browser@1.1.6)(tailwindcss@3.4.16)(typescript@5.7.2)
+      '@scalar/api-client': 2.2.19(@hyperjump/browser@1.1.6)(tailwindcss@3.4.16)(typescript@5.7.2)
       '@scalar/code-highlight': 0.0.19
       '@scalar/components': 0.13.9(typescript@5.7.2)
       '@scalar/oas-utils': 0.2.91(@hyperjump/browser@1.1.6)
@@ -5832,12 +5832,12 @@ snapshots:
       - typescript
       - universal-cookie
 
-  '@scalar/cli@0.2.272(@hyperjump/browser@1.1.6)(tailwindcss@3.4.16)(typescript@5.7.2)':
+  '@scalar/cli@0.2.273(@hyperjump/browser@1.1.6)(tailwindcss@3.4.16)(typescript@5.7.2)':
     dependencies:
       '@clack/prompts': 0.7.0
       '@hono/node-server': 1.13.7(hono@4.6.14)
       '@parcel/watcher': 2.5.0
-      '@scalar/api-reference': 1.25.89(@hyperjump/browser@1.1.6)(tailwindcss@3.4.16)(typescript@5.7.2)
+      '@scalar/api-reference': 1.25.90(@hyperjump/browser@1.1.6)(tailwindcss@3.4.16)(typescript@5.7.2)
       '@scalar/config': 0.1.1
       '@scalar/mock-server': 0.2.97(@hyperjump/browser@1.1.6)
       '@scalar/oas-utils': 0.2.91(@hyperjump/browser@1.1.6)
