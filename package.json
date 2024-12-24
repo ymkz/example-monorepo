@@ -16,10 +16,10 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
-    "@bufbuild/buf": "1.47.2",
+    "@bufbuild/buf": "1.48.0",
     "@bufbuild/protoc-gen-es": "1.10.0",
     "@connectrpc/protoc-gen-connect-es": "1.6.1",
-    "@scalar/cli": "0.2.273",
+    "@scalar/cli": "0.2.281",
     "@testcontainers/mysql": "10.16.0",
     "@types/node": "20.17.10",
     "testcontainers": "10.16.0",
