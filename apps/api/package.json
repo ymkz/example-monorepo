@@ -24,6 +24,6 @@
     "zod-validation-error": "3.4.0"
   },
   "devDependencies": {
-    "yaml": "2.6.1"
+    "yaml": "2.7.0"
   }
 }

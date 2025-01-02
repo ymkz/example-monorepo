@@ -21,7 +21,7 @@
     "@connectrpc/protoc-gen-connect-es": "1.6.1",
     "@scalar/cli": "0.2.282",
     "@testcontainers/mysql": "10.16.0",
-    "@types/node": "20.17.10",
+    "@types/node": "20.17.11",
     "testcontainers": "10.16.0",
     "tsup": "8.3.5",
     "turbo": "2.3.3",
